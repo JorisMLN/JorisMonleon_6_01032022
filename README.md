@@ -1,2 +1,6 @@
-# JorisMonleon_6_01032022
-P6 Front-End OpenClassrooms
+# Base de code du projet P6 - Parcours Front-end
+
+## Démarrer le projet
+
+Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+
