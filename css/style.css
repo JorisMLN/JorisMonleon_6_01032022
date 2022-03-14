@@ -33,11 +33,13 @@ h1 {
 }
 
 .photographer_section article {
+  width: 350px;
   justify-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: 1px solid blue;
 }
 
 .photographer_section article h2 {
@@ -48,4 +50,5 @@ h1 {
 .photographer_section article img {
   height: 200px;
   width: 200px;
+  border-radius: 100px;
 }
