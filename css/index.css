@@ -71,6 +71,15 @@ body .photographerSection article img {
 }
 
 .photograph-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #FAFAFA;
   height: 300px;
   margin: 0 100px;
