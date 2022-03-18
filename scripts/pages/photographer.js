@@ -1,16 +1,21 @@
 import media from '../data/media.js';
 import photograph from '../data/photographers.js';
-// import MediaFactory from '../factories/mediaFactory';
+import VideoModel from '../factories/videoModel.js';
+import ImageModel from '../factories/imageModel.js';
 
 main();
 
 function main() {
   console.log(media);
   console.log(photograph);
-  let photographerID = window.location.search.split('=')[1];
 
+  const params = new URLSearchParams(document.location.search);
+  console.log(params.get('id'), params.has('id'));
+
+  const photographerID = params.get('id');
   const photographerFiltered = photograph.filter(filterOptions);
-  console.log(photographerFiltered);
+
+  //TODO gestion redirection sans ID ou fake ID (BACK TO INDEX)
 
   function filterOptions(item) {
     if (item.id === Number(photographerID)) {
@@ -21,6 +26,7 @@ function main() {
   }
   
   headerSettings(photographerFiltered);
+  mediaDisplay(media);
 }
 
 function headerSettings(settings){
@@ -59,6 +65,19 @@ function headerSettings(settings){
   rightSide.innerHTML = rightHtml;
 }
 
-// function mediaDisplay(){
+function mediaDisplay(media){
 
-// }
+  let result = media
+    .filter(media => id === media.id)
+    .map(media => factory(media))
+
+    console.log(result);
+}
+
+function factory(media){
+  return media.hasOwnProperty('video') ?
+    new VideoModel(media) 
+    :
+    new ImageModel(media)
+}
+

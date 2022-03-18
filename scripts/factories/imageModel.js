@@ -1,29 +1,13 @@
-class Image {
+import Media from '../factories/mediaModel.js'
+
+class ImageModel extends Media {
   constructor(media) {
-    this.id = media.id;
-    this.photographerId = media.photographerId;
-    this.title = media.title;
-    this.likes = media.likes;
-    this.date = media.date;
+    super({...media, src: media.image})
   }
 
-  get id() {
-
-  }
-
-  get photographerId() {
-
-  }
-
-  get title() {
-
-  }
-
-  get likes() {
-
-  }
-
-  get date() {
-
+  getDomCard(){
+    return `<div>${this.id}</div>`;
   }
 }
+
+export default ImageModel;
