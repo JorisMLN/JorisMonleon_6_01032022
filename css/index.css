@@ -85,6 +85,53 @@ body .photographerSection article img {
   margin: 0 100px;
 }
 
+.photograph-header #headerLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid red;
+  width: 30%;
+  height: 90%;
+}
+
+.photograph-header #headerLeft .test {
+  border: 1px solid red;
+}
+
+.photograph-header #headerRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid red;
+  width: 30%;
+  height: 90%;
+}
+
+.photograph-header #headerRight .test {
+  border: 1px solid red;
+  width: 100px;
+}
+
 .photograph-header .contact_button {
   font-size: 20px;
   font-weight: bold;
@@ -96,6 +143,21 @@ body .photographerSection article img {
   background-color: #901C1C;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.photograph-header--right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid blue;
+  width: 30%;
+  height: 90%;
 }
 
 #contact_modal {
