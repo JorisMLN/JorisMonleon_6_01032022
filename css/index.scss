@@ -69,14 +69,14 @@ body {
         height: 18%;
 
         .city{
-          font-size: 18px;
+          font-size: 16px;
           color: #901C1C;
         }
         .tag{
-          font-size: 12px;
+          font-size: 10px;
         }
         .price{
-          font-size: 12px;
+          font-size: 10px;
           color: grey;
         }
       }
@@ -89,10 +89,8 @@ body {
 
 
 .mainProfil{
-  border: 1px solid green;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   .photograph-header {
     display: flex;
@@ -102,19 +100,27 @@ body {
     width: 1240px;
     height: 300px;
     margin-bottom: 20px;
-    border: 1px solid purple;
   
     #headerLeft{
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      border: 1px solid red;
+      align-items: flex-start;
       width: 30%;
       height: 90%;
+      padding-left: 50px;
   
-      .test{
-        border: 1px solid red;
+      .name{
+        font-size: 55px;
+        color: #D3573C;
+      }
+      .city{
+        font-size: 20px;
+        color: #901C1C;
+      }
+      .tag{
+        font-size: 15px;
+        color: grey;
       }
     }
   
@@ -123,13 +129,13 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      border: 1px solid red;
       width: 30%;
       height: 90%;
   
-      .test{
-        border: 1px solid red;
-        width: 100px;
+      .photo{
+        border-radius: 200px;
+        width: 200px;
+        height: 200px;
       }
     }
   
@@ -154,6 +160,13 @@ body {
       width: 30%;
       height: 90%;
     }
+  }
+
+  .trier{
+    width: 100px;
+    height: 40px;
+    border: 1px solid red;
+    margin-bottom: 30px;
   }
   
   #displayMedia{

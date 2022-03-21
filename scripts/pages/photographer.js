@@ -47,16 +47,16 @@ function headerSettings(settings){
   
   let leftSide = document.getElementById('headerLeft');
   let leftHtml = `
-    <div class='test'>${profil.name}</div>
-    <div class='test'>${profil.city} ${profil.country}</div>
-    <div class='test'>${profil.tagline}</div>
+    <div class='name'>${profil.name}</div>
+    <div class='city'>${profil.city} ${profil.country}</div>
+    <div class='tag'>${profil.tagline}</div>
   `;
   leftSide.innerHTML = leftHtml;
 
 
   let rightSide = document.getElementById('headerRight');
   let rightHtml = `
-    <img class='test' src='assets/photographers/${profil.photo}'></img>
+    <img class='photo' src='assets/photographers/${profil.photo}'></img>
   `;
   rightSide.innerHTML = rightHtml;
 }
@@ -66,7 +66,7 @@ function mediaDisplay(media, photographerID){
   let result = media
     .filter(media => Number(photographerID) === media.photographerId)
     .map(media => factory(media))
-  //-----
+  //- - - - -
 
   let displayMedia = document.getElementById('displayMedia');
   let html = '';
@@ -75,7 +75,8 @@ function mediaDisplay(media, photographerID){
 }
 
 function factory(media){
-  return media.hasOwnProperty('video') ?
+  return media.hasOwnProperty('video')
+    ?
     new VideoModel(media).getDomCard()
     :
     new ImageModel(media).getDomCard()

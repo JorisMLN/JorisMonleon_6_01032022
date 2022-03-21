@@ -117,21 +117,20 @@ body #photographerSection .article__bot {
 }
 
 body #photographerSection .article__bot .city {
-  font-size: 18px;
+  font-size: 16px;
   color: #901C1C;
 }
 
 body #photographerSection .article__bot .tag {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 body #photographerSection .article__bot .price {
-  font-size: 12px;
+  font-size: 10px;
   color: grey;
 }
 
 .mainProfil {
-  border: 1px solid green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,9 +138,6 @@ body #photographerSection .article__bot .price {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .mainProfil .photograph-header {
@@ -158,7 +154,6 @@ body #photographerSection .article__bot .price {
   width: 1240px;
   height: 300px;
   margin-bottom: 20px;
-  border: 1px solid purple;
 }
 
 .mainProfil .photograph-header #headerLeft {
@@ -172,16 +167,27 @@ body #photographerSection .article__bot .price {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border: 1px solid red;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   width: 30%;
   height: 90%;
+  padding-left: 50px;
 }
 
-.mainProfil .photograph-header #headerLeft .test {
-  border: 1px solid red;
+.mainProfil .photograph-header #headerLeft .name {
+  font-size: 55px;
+  color: #D3573C;
+}
+
+.mainProfil .photograph-header #headerLeft .city {
+  font-size: 20px;
+  color: #901C1C;
+}
+
+.mainProfil .photograph-header #headerLeft .tag {
+  font-size: 15px;
+  color: grey;
 }
 
 .mainProfil .photograph-header #headerRight {
@@ -198,14 +204,14 @@ body #photographerSection .article__bot .price {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid red;
   width: 30%;
   height: 90%;
 }
 
-.mainProfil .photograph-header #headerRight .test {
-  border: 1px solid red;
-  width: 100px;
+.mainProfil .photograph-header #headerRight .photo {
+  border-radius: 200px;
+  width: 200px;
+  height: 200px;
 }
 
 .mainProfil .photograph-header .contact_button {
@@ -234,6 +240,13 @@ body #photographerSection .article__bot .price {
   border: 1px solid blue;
   width: 30%;
   height: 90%;
+}
+
+.mainProfil .trier {
+  width: 100px;
+  height: 40px;
+  border: 1px solid red;
+  margin-bottom: 30px;
 }
 
 .mainProfil #displayMedia {
