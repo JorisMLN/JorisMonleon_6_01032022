@@ -11,7 +11,7 @@ class ImageModel extends Media {
         <img class='domCard__media--photo' src='assets/images/${this.photographerId}/${this.src}'></img>
       </div>
       <div class='domCard__bot'>
-        <div>${this.title}</div><div>${this.likes}</div>
+        <div>${this.title}</div><button>${this.likes}</button>
       </div>
     </div>`;
   }

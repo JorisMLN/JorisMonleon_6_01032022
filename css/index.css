@@ -1,6 +1,16 @@
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body header {
@@ -17,11 +27,12 @@ body header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 90px;
+  height: 120px;
+  width: 1240px;
 }
 
 body header .logo {
-  height: 50px;
+  height: 45px;
   margin-left: 100px;
 }
 
@@ -30,44 +41,93 @@ body header h1 {
   margin-right: 100px;
 }
 
-body .photographerSection {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  gap: 70px;
-  margin-top: 100px;
-  border: 1px solid red;
-}
-
-body .photographerSection article {
-  width: 350px;
-  justify-self: center;
+body #photographerSection {
+  width: 1240px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+body #photographerSection .article {
+  width: 350px;
+  height: 350px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid blue;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-body .photographerSection article h2 {
+body #photographerSection .article__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 99%;
+  height: 80%;
+}
+
+body #photographerSection .article__top h2 {
   color: #D3573C;
-  font-size: 36px;
+  font-size: 30px;
 }
 
-body .photographerSection article img {
-  height: 200px;
+body #photographerSection .article__top .photo {
   width: 200px;
-  border-radius: 100px;
+  height: 200px;
+  border-radius: 200px;
+}
+
+body #photographerSection .article__bot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 99%;
+  height: 18%;
+}
+
+body #photographerSection .article__bot .city {
+  font-size: 18px;
+  color: #901C1C;
+}
+
+body #photographerSection .article__bot .tag {
+  font-size: 12px;
+}
+
+body #photographerSection .article__bot .price {
+  font-size: 12px;
+  color: grey;
 }
 
 .mainProfil {
@@ -213,6 +273,7 @@ body .photographerSection article img {
 .mainProfil #displayMedia .domCard__media--photo {
   max-width: 350px;
   max-height: 300px;
+  overflow: hidden;
 }
 
 .mainProfil #displayMedia .domCard__bot {
