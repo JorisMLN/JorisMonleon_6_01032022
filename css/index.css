@@ -70,7 +70,21 @@ body .photographerSection article img {
   border-radius: 100px;
 }
 
-.photograph-header {
+.mainProfil {
+  border: 1px solid green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainProfil .photograph-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -81,11 +95,13 @@ body .photographerSection article img {
       -ms-flex-align: center;
           align-items: center;
   background-color: #FAFAFA;
+  width: 1240px;
   height: 300px;
-  margin: 0 100px;
+  margin-bottom: 20px;
+  border: 1px solid purple;
 }
 
-.photograph-header #headerLeft {
+.mainProfil .photograph-header #headerLeft {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -104,11 +120,11 @@ body .photographerSection article img {
   height: 90%;
 }
 
-.photograph-header #headerLeft .test {
+.mainProfil .photograph-header #headerLeft .test {
   border: 1px solid red;
 }
 
-.photograph-header #headerRight {
+.mainProfil .photograph-header #headerRight {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -127,12 +143,12 @@ body .photographerSection article img {
   height: 90%;
 }
 
-.photograph-header #headerRight .test {
+.mainProfil .photograph-header #headerRight .test {
   border: 1px solid red;
   width: 100px;
 }
 
-.photograph-header .contact_button {
+.mainProfil .photograph-header .contact_button {
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -145,7 +161,7 @@ body .photographerSection article img {
   cursor: pointer;
 }
 
-.photograph-header--right {
+.mainProfil .photograph-header--right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -158,6 +174,31 @@ body .photographerSection article img {
   border: 1px solid blue;
   width: 30%;
   height: 90%;
+}
+
+.mainProfil #displayMedia {
+  width: 1240px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.mainProfil #displayMedia .domCard {
+  width: 350px;
+  height: 350px;
+  margin-bottom: 20px;
+  border: 1px solid blue;
+}
+
+.mainProfil #displayMedia .domCard__media {
+  border: 1px solid red;
+  width: 350px;
+  height: 300px;
 }
 
 #contact_modal {

@@ -6,7 +6,10 @@ class ImageModel extends Media {
   }
 
   getDomCard(){
-    return `<div>${this.id}</div>`;
+    return `<div class='domCard'>
+      <div class='domCard__media'></div>
+      ${this.title}
+    </div>`;
   }
 }
 

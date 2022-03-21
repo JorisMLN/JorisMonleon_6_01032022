@@ -54,65 +54,96 @@ body {
 
 // - - - - - - - - - - PAGE PHOTOGRAPHER - - - - - - - - - - 
 
-.photograph-header {
+
+.mainProfil{
+  border: 1px solid green;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  background-color: #FAFAFA;
-  height: 300px;
-  margin: 0 100px;
 
-  #headerLeft{
+  .photograph-header {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    border: 1px solid red;
-    width: 30%;
-    height: 90%;
-
-    .test{
+    background-color: #FAFAFA;
+    width: 1240px;
+    height: 300px;
+    margin-bottom: 20px;
+    border: 1px solid purple;
+  
+    #headerLeft{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       border: 1px solid red;
+      width: 30%;
+      height: 90%;
+  
+      .test{
+        border: 1px solid red;
+      }
+    }
+  
+    #headerRight{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid red;
+      width: 30%;
+      height: 90%;
+  
+      .test{
+        border: 1px solid red;
+        width: 100px;
+      }
+    }
+  
+    .contact_button {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      padding: 11px;
+      width: 170px;
+      height: 70px;
+      border: none;
+      background-color: #901C1C;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    &--right{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid blue;
+      width: 30%;
+      height: 90%;
     }
   }
-
-  #headerRight{
+  
+  #displayMedia{
+    width: 1240px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid red;
-    width: 30%;
-    height: 90%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+    .domCard{
+      width: 350px;
+      height: 350px;
+      margin-bottom: 20px;
+      border: 1px solid blue;
 
-    .test{
-      border: 1px solid red;
-      width: 100px;
+      &__media{
+        border: 1px solid red;
+        width: 350px;
+        height: 300px;
+      }
     }
-  }
-
-  .contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  &--right{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid blue;
-    width: 30%;
-    height: 90%;
   }
 }
+
 
 #contact_modal {
   display: none;
