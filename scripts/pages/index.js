@@ -10,12 +10,16 @@ function main() {
   displayData(photographers);
 }
 
-async function displayData(photographers) {
-  const photographersSection = document.querySelector(".photographerSection");
+function displayData(photographers) {
+  const photographersSection = document.getElementById("photographerSection");
+  let htmlBloc = '';
 
   photographers.forEach((photographer) => {
-    const photographerModel = photographerFactory(photographer);
-    const userCardDOM = photographerModel.getUserCardDOM();
-    photographersSection.appendChild(userCardDOM);
+    htmlBloc += photographerFactory(photographer)
+    // const photographerModel = photographerFactory(photographer);
+    // const userCardDOM = photographerModel.getUserCardDOM();
+    // photographersSection.appendChild(userCardDOM);
   });
+
+  photographersSection.innerHTML = htmlBloc;
 };
