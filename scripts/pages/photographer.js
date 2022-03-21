@@ -6,17 +6,12 @@ import ImageModel from '../factories/imageModel.js';
 main();
 
 function main() {
-  console.log(media);
-  console.log(photograph);
 
   const params = new URLSearchParams(document.location.search);
   console.log(params.get('id'), params.has('id'));
 
   const photographerID = params.get('id');
   const photographerFiltered = photograph.filter(filterOptions);
-
-  //TODO gestion redirection sans ID ou fake ID (BACK TO INDEX)
-
   function filterOptions(item) {
     if (item.id === Number(photographerID)) {
       return true;
@@ -24,9 +19,10 @@ function main() {
       return false;
     }
   }
+   //TODO gestion redirection sans ID ou fake ID (BACK TO INDEX)
   
   headerSettings(photographerFiltered);
-  mediaDisplay(media);
+  mediaDisplay(media, photographerID);
 }
 
 function headerSettings(settings){
@@ -65,19 +61,23 @@ function headerSettings(settings){
   rightSide.innerHTML = rightHtml;
 }
 
-function mediaDisplay(media){
+function mediaDisplay(media, photographerID){
 
   let result = media
-    .filter(media => id === media.id)
+    .filter(media => Number(photographerID) === media.photographerId)
     .map(media => factory(media))
+  //-----
 
-    console.log(result);
+  let displayMedia = document.getElementById('displayMedia');
+  let html = '';
+  result.forEach(item => html += item);
+  displayMedia.innerHTML = html;
 }
 
 function factory(media){
   return media.hasOwnProperty('video') ?
-    new VideoModel(media) 
+    new VideoModel(media).getDomCard()
     :
-    new ImageModel(media)
+    new ImageModel(media).getDomCard()
 }
 
