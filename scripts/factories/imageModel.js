@@ -7,8 +7,12 @@ class ImageModel extends Media {
 
   getDomCard(){
     return `<div class='domCard'>
-      <div class='domCard__media'></div>
-      ${this.title}
+      <div class='domCard__media'>
+        <img class='domCard__media--photo' src='assets/images/${this.photographerId}/${this.src}'></img>
+      </div>
+      <div class='domCard__bot'>
+        <div>${this.title}</div><div>${this.likes}</div>
+      </div>
     </div>`;
   }
 }

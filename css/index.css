@@ -189,16 +189,41 @@ body .photographerSection article img {
 }
 
 .mainProfil #displayMedia .domCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   width: 350px;
   height: 350px;
   margin-bottom: 20px;
-  border: 1px solid blue;
 }
 
 .mainProfil #displayMedia .domCard__media {
   border: 1px solid red;
   width: 350px;
   height: 300px;
+}
+
+.mainProfil #displayMedia .domCard__media--photo {
+  max-width: 350px;
+  max-height: 300px;
+}
+
+.mainProfil #displayMedia .domCard__bot {
+  border: 1px solid yellowgreen;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 20px;
 }
 
 #contact_modal {

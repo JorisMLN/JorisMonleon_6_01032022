@@ -130,15 +130,30 @@ body {
     flex-wrap: wrap;
   
     .domCard{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
       width: 350px;
       height: 350px;
       margin-bottom: 20px;
-      border: 1px solid blue;
+      // border: 1px solid blue;
 
       &__media{
         border: 1px solid red;
         width: 350px;
         height: 300px;
+
+        &--photo{
+          max-width: 350px;
+          max-height: 300px;
+        }
+      }
+
+      &__bot{
+        border: 1px solid yellowgreen;
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
       }
     }
   }
