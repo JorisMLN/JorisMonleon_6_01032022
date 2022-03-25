@@ -19,10 +19,12 @@ function main() {
       return false;
     }
   }
-   //TODO gestion redirection sans ID ou fake ID (BACK TO INDEX)
+  //TODO gestion redirection sans ID ou fake ID (BACK TO INDEX)
   
   headerSettings(photographerFiltered);
   mediaDisplay(media, photographerID);
+  displayModal();
+  closeModal();
 }
 
 function headerSettings(settings){
@@ -66,7 +68,7 @@ function mediaDisplay(media, photographerID){
   let result = media
     .filter(media => Number(photographerID) === media.photographerId)
     .map(media => factory(media))
-  //- - - - -
+  // - - - - -
 
   let displayMedia = document.getElementById('displayMedia');
   let html = '';
@@ -82,3 +84,24 @@ function factory(media){
     new ImageModel(media).getDomCard()
 }
 
+function displayModal(){
+  const openModalBtn = document.getElementById('openModalBtn');
+
+  openModalBtn.addEventListener('click', () => {
+    const modal = document.getElementById('contact_modal');
+    modal.style.display = 'block';
+    console.log('openTest');
+    }
+  );
+}
+
+function closeModal(){
+  const closeModalBtn = document.querySelector('#closeModalBtn');
+
+  closeModalBtn.addEventListener('click', () => {
+    const modal = document.getElementById('contact_modal');
+    modal.style.display = 'none';
+    console.log('closeTest');
+    }
+  );
+}
