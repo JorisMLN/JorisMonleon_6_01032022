@@ -1,10 +1,10 @@
 import Media from '../factories/mediaModel.js'
-class VideoModel extends Media{
+class VideoModel extends Media {
   constructor(media) {
-    super({...media, src: media.video})
+    super({ ...media, src: media.video })
   }
 
-  getDomCard(){
+  getDomCard() {
     return `<div class='domCard'>
       <div class='domCard__media'>
         <video class='domCard__media--photo'>
@@ -12,7 +12,11 @@ class VideoModel extends Media{
         </video>
       </div>
       <div class='domCard__bot'>
-        <div>${this.title}</div><button>${this.likes}</button>
+        <div>${this.title}</div>
+        <div class='domCard__bot--likes'>
+          ${this.likes}
+          <img alt='button like' src="assets/icons/heart.png" />
+        </div>  
       </div>
     </div>`;
   }

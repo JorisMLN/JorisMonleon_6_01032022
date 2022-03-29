@@ -42,40 +42,42 @@ body {
       justify-content: space-evenly;
       align-items: center;
 
-      &__top{
+      &__top {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 99%;
         height: 80%;
 
-        h2{
+        h2 {
           color: #D3573C;
           font-size: 30px;
         }
 
-        .photo{
+        .photo {
           width: 200px;
           height: 200px;
           border-radius: 200px;
         }
       }
 
-      &__bot{
+      &__bot {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 99%;
         height: 18%;
 
-        .city{
+        .city {
           font-size: 16px;
           color: #901C1C;
         }
-        .tag{
+
+        .tag {
           font-size: 10px;
         }
-        .price{
+
+        .price {
           font-size: 10px;
           color: grey;
         }
@@ -88,7 +90,7 @@ body {
 // - - - - - - - - - - PAGE PHOTOGRAPHER - - - - - - - - - - 
 
 
-.mainProfil{
+.mainProfil {
   display: flex;
   flex-direction: column;
 
@@ -100,8 +102,8 @@ body {
     width: 1240px;
     height: 300px;
     margin-bottom: 20px;
-  
-    #headerLeft{
+
+    #headerLeft {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -109,36 +111,38 @@ body {
       width: 30%;
       height: 90%;
       padding-left: 50px;
-  
-      .name{
+
+      .name {
         font-size: 55px;
         color: #D3573C;
       }
-      .city{
+
+      .city {
         font-size: 20px;
         color: #901C1C;
       }
-      .tag{
+
+      .tag {
         font-size: 15px;
         color: grey;
       }
     }
-  
-    #headerRight{
+
+    #headerRight {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 30%;
       height: 90%;
-  
-      .photo{
+
+      .photo {
         border-radius: 200px;
         width: 200px;
         height: 200px;
       }
     }
-  
+
     .contact_button {
       font-size: 20px;
       font-weight: bold;
@@ -151,8 +155,8 @@ body {
       border-radius: 5px;
       cursor: pointer;
     }
-  
-    &--right{
+
+    &--right {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -162,49 +166,82 @@ body {
     }
   }
 
-  .trier{
-    width: 100px;
-    height: 40px;
+  .trier {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 300px;
+    height: 50px;
     border: 1px solid red;
     margin-bottom: 30px;
-  }
-  
-  #displayMedia{
-    width: 1240px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  
-    .domCard{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      width: 350px;
-      height: 350px;
-      margin-bottom: 20px;
-      // border: 1px solid blue;
 
-      &__media{
-        border: 1px solid red;
-        width: 350px;
-        height: 300px;
+    .dropdown {
+      .dropdown-menu {
+        li {
+          .popBtn {
+            background-color: white;
+          }
 
-        &--photo{
-          max-width: 350px;
-          max-height: 300px;
-          overflow: hidden;
+          .titleBtn {
+            background-color: white;
+          }
+
+          .dateBtn {
+            background-color: white;
+          }
         }
-      }
-
-      &__bot{
-        border: 1px solid yellowgreen;
-        display: flex;
-        justify-content: space-between;
-        font-size: 20px;
       }
     }
   }
 }
+
+#displayMedia {
+  width: 1240px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .domCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 350px;
+    height: 350px;
+    margin-bottom: 20px;
+
+    &__media {
+      border: 1px solid red;
+      width: 350px;
+      height: 300px;
+
+      &--photo {
+        max-width: 350px;
+        max-height: 300px;
+        overflow: hidden;
+      }
+    }
+
+    &__bot {
+      border: 1px solid yellowgreen;
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+
+      &--likes {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .img {
+          display: flex;
+          align-self: center;
+          height: 10px;
+        }
+      }
+    }
+  }
+}
+
 
 
 #contact_modal {
@@ -222,10 +259,11 @@ body {
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
+    height: 80%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+    align-self: center;
     padding: 35px;
     margin: auto;
     margin-top: 150px;
