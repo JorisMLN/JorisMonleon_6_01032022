@@ -431,6 +431,22 @@ body #photographerSection .article__bot .price {
   font-size: 36px;
 }
 
+#contact_modal .modalForm form div #firstName {
+  font-size: 36px;
+}
+
+#contact_modal .modalForm form div #lastName {
+  font-size: 36px;
+}
+
+#contact_modal .modalForm form div #mail {
+  font-size: 36px;
+}
+
+#contact_modal .modalForm form div #message {
+  font-size: 36px;
+}
+
 #contact_modal .modalForm form div input {
   width: 100%;
   height: 68px;
@@ -438,7 +454,7 @@ body #photographerSection .article__bot .price {
   border-radius: 5px;
 }
 
-#contact_modal .modalForm form .contact_button {
+#contact_modal .modalForm form #contact_button {
   border: 1px solid black;
   border-radius: 2px;
 }

@@ -27,6 +27,7 @@ function main() {
   headerSettings(photographerFiltered);
   mediaDisplay(media, photographerID);
   displayModal();
+  sendForm();
   closeModal();
   displayLightBox();
   closeLightBox();
@@ -146,7 +147,6 @@ function displayModal() {
     const modal = document.getElementById('contact_modal');
     modal.style.display = 'block';
     console.log('openTest');
-    sendForm();
   });
 }
 
@@ -156,26 +156,26 @@ function closeModal() {
   closeModalBtn.addEventListener('click', () => {
     const modal = document.getElementById('contact_modal');
     modal.style.display = 'none';
-    console.log('closeTest');
   });
 }
 
 function sendForm() {
-  const sendBtn = document.querySelector('.contact_button');
+  const sendBtn = document.querySelector('#contact_button');
   console.log('test send')
 
   sendBtn.addEventListener('click', function (event) {
-    console.log(event)
     event.preventDefault();
 
-    let firstName = document.getElementsByClassName('firstName').value;
-    let lastName = document.getElementsByClassName('lastName').value;
-    let mail = document.getElementsByClassName('mail').value;
-    let message = document.getElementsByClassName('message').value;
+    let firstName = document.querySelector('#firstName').value;
+    let lastName = document.querySelector('#lastName').value;
+    let mail = document.querySelector('#mail').value;
+    let message = document.querySelector('#message').value;
 
     console.log(firstName, lastName, mail, message);
-  })
 
+    const modal = document.getElementById('contact_modal');
+    modal.style.display = 'none';
+  }, { once: true })
 }
 
 function displayLightBox() {
@@ -184,12 +184,10 @@ function displayLightBox() {
   let slotToDisplay = document.getElementById('lightBox__display');
 
   let arrayOfPhotoSource = [];
-  console.log(Array.from(mediaToView))
 
   Array.from(mediaToView).forEach((photo) => {
 
     arrayOfPhotoSource.push(photo.attributes.src.value);
-
     photo.addEventListener('click', function (event) {
       event.preventDefault();
       let srcValue = event.target.attributes.src.value;
