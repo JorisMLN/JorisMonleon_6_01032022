@@ -19,7 +19,10 @@ function main() {
       return false;
     }
   }
-  //TODO gestion redirection sans ID ou fake ID (BACK TO INDEX)
+
+  if (params.has('id') === false || photographerFiltered.length <= 0) {
+    window.location = 'http://127.0.0.1:5501/index.html';
+  };
 
   headerSettings(photographerFiltered);
   mediaDisplay(media, photographerID);
