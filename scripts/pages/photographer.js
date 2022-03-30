@@ -28,6 +28,8 @@ function main() {
   mediaDisplay(media, photographerID);
   displayModal();
   closeModal();
+  displayLightBox();
+  closeLightBox();
 }
 
 function headerSettings(settings) {
@@ -135,6 +137,8 @@ function factory(media) {
     new ImageModel(media).getDomCard()
 }
 
+//####################################################################################################################################
+// Modal Manager
 function displayModal() {
   const openModalBtn = document.getElementById('openModalBtn');
 
@@ -142,8 +146,8 @@ function displayModal() {
     const modal = document.getElementById('contact_modal');
     modal.style.display = 'block';
     console.log('openTest');
-  }
-  );
+    sendForm();
+  });
 }
 
 function closeModal() {
@@ -153,6 +157,56 @@ function closeModal() {
     const modal = document.getElementById('contact_modal');
     modal.style.display = 'none';
     console.log('closeTest');
-  }
-  );
+  });
+}
+
+function sendForm() {
+  const sendBtn = document.querySelector('.contact_button');
+  console.log('test send')
+
+  sendBtn.addEventListener('click', function (event) {
+    console.log(event)
+    event.preventDefault();
+
+    let firstName = document.getElementsByClassName('firstName').value;
+    let lastName = document.getElementsByClassName('lastName').value;
+    let mail = document.getElementsByClassName('mail').value;
+    let message = document.getElementsByClassName('message').value;
+
+    console.log(firstName, lastName, mail, message);
+  })
+
+}
+
+function displayLightBox() {
+  let lightBox = document.getElementById('lightBox_modal');
+  let mediaToView = document.getElementsByClassName('domCard__media--photo');
+  let slotToDisplay = document.getElementById('lightBox__display');
+
+  let arrayOfPhotoSource = [];
+  console.log(Array.from(mediaToView))
+
+  Array.from(mediaToView).forEach((photo) => {
+
+    arrayOfPhotoSource.push(photo.attributes.src.value);
+
+    photo.addEventListener('click', function (event) {
+      event.preventDefault();
+      let srcValue = event.target.attributes.src.value;
+
+      slotToDisplay.setAttribute("src", srcValue);
+
+      lightBox.style.display = "block";
+    })
+  })
+
+  console.log(arrayOfPhotoSource);
+}
+
+function closeLightBox() {
+  let lightBox = document.getElementById('lightBox_modal');
+  let closeBtn = document.getElementById('closeLightBoxBtn');
+  closeBtn.addEventListener('click', function () {
+    lightBox.style.display = "none";
+  })
 }

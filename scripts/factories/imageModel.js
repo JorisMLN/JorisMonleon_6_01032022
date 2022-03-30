@@ -12,10 +12,10 @@ class ImageModel extends Media {
       </div>
       <div class='domCard__bot'>
       <div>${this.title}</div>
-      <div>
-        ${this.likes}
-        <img alt='button like' src="assets/icons/heart.png" />
-      </div>  
+        <div>
+          ${this.likes}
+          <img alt='button like' src="assets/icons/heart.png" />
+        </div>  
       </div>
     </div>`;
   }

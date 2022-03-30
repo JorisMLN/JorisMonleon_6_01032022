@@ -46,7 +46,7 @@
     <div id="displayMedia"></div>
   </main>
   <div id="contact_modal">
-    <div class="modal">
+    <div id="modal" class="modalForm">
       <header>
         <h2>Contactez-moi</h2>
         <img id='closeModalBtn' src="assets/icons/close.svg" />
@@ -54,16 +54,31 @@
       <form>
         <div>
           <label>Prénom</label>
-          <input />
+          <input class="firstName" />
           <label>Nom</label>
-          <input />
+          <input class="LastName" />
           <label>Email</label>
-          <input />
+          <input class="mail" />
           <label>Votre Message</label>
-          <input />
+          <input class="message" />
         </div>
         <button class="contact_button">Envoyer</button>
       </form>
+    </div>
+  </div>
+  <div id="lightBox_modal">
+    <div id="lightBox" class="lightBox">
+
+      <div class="lightBox__left">
+        <img id='test' src="" />
+      </div>
+
+      <img id='lightBox__display' class='lightBox__display' />
+
+      <div class="lightBox__right">
+        <img id='closeLightBoxBtn' src="assets/icons/close.svg" />
+      </div>
+
     </div>
   </div>
   <script type="module" src="/scripts/factories/imageModel.js"></script>

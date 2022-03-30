@@ -304,6 +304,12 @@ body #photographerSection .article__bot .price {
   height: 300px;
 }
 
+#displayMedia .domCard__media video {
+  max-width: 350px;
+  max-height: 300px;
+  overflow: hidden;
+}
+
 #displayMedia .domCard__media--photo {
   max-width: 350px;
   max-height: 300px;
@@ -345,19 +351,12 @@ body #photographerSection .article__bot .price {
   display: none;
   position: fixed;
   z-index: 1;
-  left: 0;
-  top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-#contact_modal .modal {
-  border-radius: 5px;
-  background-color: #DB8876;
-  width: 50%;
-  height: 80%;
+#contact_modal .modalForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -368,31 +367,37 @@ body #photographerSection .article__bot .price {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -ms-flex-item-align: center;
-      align-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  background-color: #DB8876;
+  border: 1px solid #DB8876;
+  width: 600px;
+  height: 800px;
   padding: 35px;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 100px;
 }
 
-#contact_modal .modal header {
+#contact_modal .modalForm header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
 }
 
-#contact_modal .modal header img {
+#contact_modal .modalForm header img {
   cursor: pointer;
 }
 
-#contact_modal .modal header h2 {
+#contact_modal .modalForm header h2 {
   font-size: 64px;
   font-weight: normal;
   text-align: center;
 }
 
-#contact_modal .modal form {
+#contact_modal .modalForm form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -406,7 +411,7 @@ body #photographerSection .article__bot .price {
           align-items: flex-start;
 }
 
-#contact_modal .modal form div {
+#contact_modal .modalForm form div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -421,15 +426,74 @@ body #photographerSection .article__bot .price {
   margin-bottom: 26px;
 }
 
-#contact_modal .modal form div label {
+#contact_modal .modalForm form div label {
   color: #312E2E;
   font-size: 36px;
 }
 
-#contact_modal .modal form div input {
+#contact_modal .modalForm form div input {
   width: 100%;
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+#contact_modal .modalForm form .contact_button {
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+#lightBox_modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+#lightBox_modal .lightBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 150px;
+}
+
+#lightBox_modal .lightBox__left {
+  border: 1px solid red;
+  height: 100%;
+  width: 8%;
+}
+
+#lightBox_modal .lightBox__display {
+  border: 1px solid #D3573C;
+  width: 80%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#lightBox_modal .lightBox img {
+  background-color: #312E2E;
+  cursor: pointer;
+}
+
+#lightBox_modal .lightBox__right {
+  border: 1px solid blue;
+  height: 100%;
+  width: 8%;
 }
 /*# sourceMappingURL=index.css.map */
