@@ -5,7 +5,7 @@ class VideoModel extends Media {
   }
 
   getDomCard() {
-    return `<div class='domCard'>
+    return `<div class='domCard' data-id=${this.id}>
       <div class='domCard__media'>
         <video>
           <source class='domCard__media--photo' src='assets/images/${this.photographerId}/${this.src}'>

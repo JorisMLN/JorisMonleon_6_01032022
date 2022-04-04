@@ -31,6 +31,7 @@ function main() {
   closeModal();
   displayLightBox();
   closeLightBox();
+  fixedInfoDisplay(media, photographerFiltered)
 }
 
 function headerSettings(settings) {
@@ -40,10 +41,12 @@ function headerSettings(settings) {
     city: '',
     country: '',
     photo: '',
-    tagline: ''
+    tagline: '',
   }
 
   settings.forEach((item) => {
+    console.log(item);
+
     profil.name = item.name;
     profil.city = item.city;
     profil.country = item.country;
@@ -70,7 +73,6 @@ function headerSettings(settings) {
 }
 
 function mediaDisplay(media, photographerID) {
-  console.log(media)
 
   let result = media
     .filter(media => Number(photographerID) === media.photographerId)
@@ -96,6 +98,7 @@ function sortByDropdown(media, photographerID) {
     // - - - - -
 
     displayArt(sortedResult);
+    displayLightBox()
   })
 
   let titleBtn = document.querySelector('.titleBtn');
@@ -109,6 +112,7 @@ function sortByDropdown(media, photographerID) {
     // - - - - -
 
     displayArt(sortedResult);
+    displayLightBox()
   })
 
   let popBtn = document.querySelector('.popBtn');
@@ -120,6 +124,7 @@ function sortByDropdown(media, photographerID) {
     // - - - - -
 
     displayArt(sortedResult);
+    displayLightBox()
   })
 }
 
@@ -136,6 +141,33 @@ function factory(media) {
     new VideoModel(media).getDomCard()
     :
     new ImageModel(media).getDomCard()
+}
+
+function fixedInfoDisplay(media, photographers) {
+
+  let price;
+  let _id;
+
+  photographers.map(photographe => {
+    price = photographe.price;
+    _id = photographe.id;
+  });
+
+  let fixedInfoBloc = document.getElementById('fixedInfo');
+
+  let likes = media
+    .filter(media => Number(_id) === media.photographerId)
+    .map(media => media.likes)
+  // - - - - -
+
+  let totalLikes = 0;
+  for (let i = 0; i < likes.length; i++) {
+    totalLikes += likes[i];
+  }
+
+  let htmlLikes = `<div>${totalLikes} likes</div>`;
+  let htmlPrice = `<div>${price} / jour</div>`;
+  fixedInfoBloc.innerHTML = htmlLikes + htmlPrice;
 }
 
 //####################################################################################################################################
@@ -182,7 +214,6 @@ function displayLightBox() {
   let lightBox = document.getElementById('lightBox_modal');
   let mediaToView = document.getElementsByClassName('domCard__media--photo');
   let slotToDisplay = document.getElementById('lightBox__display');
-
   let arrayOfPhotoSource = [];
 
   Array.from(mediaToView).forEach((photo) => {
@@ -190,15 +221,45 @@ function displayLightBox() {
     arrayOfPhotoSource.push(photo.attributes.src.value);
     photo.addEventListener('click', function (event) {
       event.preventDefault();
+
       let srcValue = event.target.attributes.src.value;
-
       slotToDisplay.setAttribute("src", srcValue);
-
       lightBox.style.display = "block";
+
+      arrayPlusOne(arrayOfPhotoSource, srcValue);
+      arrayLessOne(arrayOfPhotoSource, srcValue);
+
+      function arrayPlusOne(arrayOfPhotoSource) {
+        let rightArrow = document.getElementById('rightArrow');
+
+        rightArrow.addEventListener('click', function () {
+          let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+
+          console.log(arrayOfPhotoSource.indexOf(srcValue));
+
+          srcValue = arrayOfPhotoSource[indexOfMedia + 1];
+          slotToDisplay.setAttribute("src", srcValue);
+
+          // arrayPlusOne(arrayOfPhotoSource, srcValue);
+          // arrayLessOne(arrayOfPhotoSource, srcValue);
+        })
+      }
+
+      function arrayLessOne(arrayOfPhotoSource) {
+        let leftArrow = document.getElementById('leftArrow');
+
+        leftArrow.addEventListener('click', function () {
+          let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+
+          srcValue = arrayOfPhotoSource[indexOfMedia - 1];
+          slotToDisplay.setAttribute("src", srcValue);
+
+          // arrayLessOne(arrayOfPhotoSource, srcValue);
+          // arrayPlusOne(arrayOfPhotoSource, srcValue);
+        })
+      }
     })
   })
-
-  console.log(arrayOfPhotoSource);
 }
 
 function closeLightBox() {

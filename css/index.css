@@ -495,6 +495,12 @@ body #photographerSection .article__bot .price {
   width: 8%;
 }
 
+#lightBox_modal .lightBox__left #leftArrow {
+  width: 90%;
+  height: 50px;
+  border: 1px solid green;
+}
+
 #lightBox_modal .lightBox__display {
   border: 1px solid #D3573C;
   width: 80%;
@@ -511,5 +517,21 @@ body #photographerSection .article__bot .price {
   border: 1px solid blue;
   height: 100%;
   width: 8%;
+}
+
+#lightBox_modal .lightBox__right #rightArrow {
+  width: 90%;
+  height: 50px;
+  border: 1px solid green;
+}
+
+#fixedInfo {
+  width: 376px;
+  height: 89px;
+  background-color: #DB8876;
+  border-radius: 2px 2px 0px 0px;
+  position: fixed;
+  bottom: 0;
+  right: 10%;
 }
 /*# sourceMappingURL=index.css.map */
