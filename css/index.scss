@@ -238,11 +238,20 @@ body {
         justify-content: space-around;
         align-items: center;
 
-        .img {
-          display: flex;
-          align-self: center;
-          height: 10px;
+        &--count{
+          border: 1px solid red;
         }
+
+        .likesBtn{
+          border: 1px solid red;
+        }
+
+        // .img {
+        //   display: flex;
+        //   align-self: center;
+        //   // height: 10px;
+        //   border: 1px solid red;
+        // }
       }
     }
   }
@@ -391,9 +400,11 @@ body {
 }
 
 #fixedInfo{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 376px;
   height: 89px;
-  // border: 1px solid red;
   background-color: #DB8876;
   border-radius: 2px 2px 0px 0px;
   position: fixed;

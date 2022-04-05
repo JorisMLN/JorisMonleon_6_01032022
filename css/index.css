@@ -338,13 +338,12 @@ body #photographerSection .article__bot .price {
           align-items: center;
 }
 
-#displayMedia .domCard__bot--likes .img {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-item-align: center;
-      align-self: center;
-  height: 10px;
+#displayMedia .domCard__bot--likes--count {
+  border: 1px solid red;
+}
+
+#displayMedia .domCard__bot--likes .likesBtn {
+  border: 1px solid red;
 }
 
 #contact_modal {
@@ -526,6 +525,14 @@ body #photographerSection .article__bot .price {
 }
 
 #fixedInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 376px;
   height: 89px;
   background-color: #DB8876;

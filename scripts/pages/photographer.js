@@ -1,7 +1,11 @@
-import media from '../data/media.js';
+import dataMedia from '../data/media.js';
 import photograph from '../data/photographers.js';
 import VideoModel from '../factories/videoModel.js';
 import ImageModel from '../factories/imageModel.js';
+
+let media = dataMedia;
+let photographerFiltered;
+console.log(media);
 
 main();
 
@@ -11,7 +15,7 @@ function main() {
   console.log(params.get('id'), params.has('id'));
 
   const photographerID = params.get('id');
-  const photographerFiltered = photograph.filter(filterOptions);
+  photographerFiltered = photograph.filter(filterOptions);
   function filterOptions(item) {
     if (item.id === Number(photographerID)) {
       return true;
@@ -31,7 +35,7 @@ function main() {
   closeModal();
   displayLightBox();
   closeLightBox();
-  fixedInfoDisplay(media, photographerFiltered)
+  fixedInfoDisplay(media, photographerFiltered);
 }
 
 function headerSettings(settings) {
@@ -45,8 +49,6 @@ function headerSettings(settings) {
   }
 
   settings.forEach((item) => {
-    console.log(item);
-
     profil.name = item.name;
     profil.city = item.city;
     profil.country = item.country;
@@ -79,8 +81,10 @@ function mediaDisplay(media, photographerID) {
     .sort((a, b) => b.likes - a.likes)
     .map(media => factory(media))
   // - - - - -
-  displayArt(result);
 
+  console.log(result)
+  displayArt(result);
+  likesManager()
   sortByDropdown(media, photographerID)
 }
 
@@ -99,6 +103,7 @@ function sortByDropdown(media, photographerID) {
 
     displayArt(sortedResult);
     displayLightBox()
+    likesManager()
   })
 
   let titleBtn = document.querySelector('.titleBtn');
@@ -113,6 +118,7 @@ function sortByDropdown(media, photographerID) {
 
     displayArt(sortedResult);
     displayLightBox()
+    likesManager()
   })
 
   let popBtn = document.querySelector('.popBtn');
@@ -125,6 +131,7 @@ function sortByDropdown(media, photographerID) {
 
     displayArt(sortedResult);
     displayLightBox()
+    likesManager()
   })
 }
 
@@ -170,6 +177,30 @@ function fixedInfoDisplay(media, photographers) {
   fixedInfoBloc.innerHTML = htmlLikes + htmlPrice;
 }
 
+function likesManager() {
+  let likesBtn = document.getElementsByClassName('likesBtn');
+  console.log(likesBtn);
+
+  Array.from(likesBtn).map(btn => {
+    btn.addEventListener('click', function () {
+      console.log(btn.dataset.id)
+      media.forEach((item) => {
+        if (item.id === Number(btn.dataset.id)) {
+          item.likes++
+          console.log(item.likes);
+          console.log(item);
+
+          let likesCount = document.getElementById(`${btn.dataset.id}`);
+          console.log(likesCount);
+          likesCount.innerHTML = item.likes;
+
+          fixedInfoDisplay(media, photographerFiltered);
+        }
+      })
+    })
+  })
+
+}
 //####################################################################################################################################
 // Modal Manager
 function displayModal() {
@@ -193,7 +224,6 @@ function closeModal() {
 
 function sendForm() {
   const sendBtn = document.querySelector('#contact_button');
-  console.log('test send')
 
   sendBtn.addEventListener('click', function (event) {
     event.preventDefault();

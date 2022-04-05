@@ -5,7 +5,7 @@ class VideoModel extends Media {
   }
 
   getDomCard() {
-    return `<div class='domCard' data-id=${this.id}>
+    return `<div class='domCard'>
       <div class='domCard__media'>
         <video>
           <source class='domCard__media--photo' src='assets/images/${this.photographerId}/${this.src}'>
@@ -14,8 +14,8 @@ class VideoModel extends Media {
       <div class='domCard__bot'>
         <div>${this.title}</div>
         <div class='domCard__bot--likes'>
-          ${this.likes}
-          <img alt='button like' src="assets/icons/heart.png" />
+          <div id='${this.id}' class='domCard__bot--likes--count'>${this.likes}</div>
+          <img data-id=${this.id} class='likesBtn' alt='button like' src="assets/icons/heart.png" />
         </div>  
       </div>
     </div>`;
