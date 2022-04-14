@@ -89,6 +89,7 @@ function mediaDisplay(media, photographerID) {
 }
 
 function sortByDropdown(media, photographerID) {
+  let ddMenuBtn = document.getElementById('dropdownMenuButton1');
   let sortedResult;
 
   let dateBtn = document.querySelector('.dateBtn');
@@ -100,6 +101,8 @@ function sortByDropdown(media, photographerID) {
       })
       .map(media => factory(media))
     // - - - - -
+
+    ddMenuBtn.innerText = 'Date';
 
     displayArt(sortedResult);
     displayLightBox()
@@ -116,6 +119,8 @@ function sortByDropdown(media, photographerID) {
       .map(media => factory(media))
     // - - - - -
 
+    ddMenuBtn.innerText = 'Titre';
+
     displayArt(sortedResult);
     displayLightBox()
     likesManager()
@@ -128,6 +133,8 @@ function sortByDropdown(media, photographerID) {
       .sort((a, b) => b.likes - a.likes)
       .map(media => factory(media))
     // - - - - -
+
+    ddMenuBtn.innerText = 'Popularité';
 
     displayArt(sortedResult);
     displayLightBox()
