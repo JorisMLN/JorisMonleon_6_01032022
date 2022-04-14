@@ -212,7 +212,7 @@ body {
     // border: 1px solid blue;
 
     &__media {
-      // border: 1px solid red;
+      border: 1px solid white;
       // width: 350px;
       // height: 300px;
 
@@ -240,13 +240,13 @@ body {
         justify-content: space-around;
         align-items: center;
 
-        &--count{
-          // border: 1px solid red;
-        }
+        // &--count{
+        //   border: 1px solid red;
+        // }
 
-        .likesBtn{
-          // border: 1px solid red;
-        }
+        // .likesBtn{
+        //   border: 1px solid red;
+        // }
 
         // .img {
         //   display: flex;

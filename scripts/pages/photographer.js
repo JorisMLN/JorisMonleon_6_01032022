@@ -215,11 +215,19 @@ function displayModal() {
 
 function closeModal() {
   const closeModalBtn = document.querySelector('#closeModalBtn');
+  const modal = document.getElementById('contact_modal');
 
   closeModalBtn.addEventListener('click', () => {
-    const modal = document.getElementById('contact_modal');
     modal.style.display = 'none';
   });
+
+  document.onkeydown = keyLog;
+
+  function keyLog(event) {
+    if (event.code === 'Enter') {
+      modal.style.display = 'none';
+    }
+  }
 }
 
 function sendForm() {
@@ -262,6 +270,7 @@ function displayLightBox() {
 
       function keyboardNav() {
         document.onkeydown = keyLog;
+
 
         function keyLog(event) {
           let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
@@ -306,8 +315,6 @@ function displayLightBox() {
     })
   })
 }
-
-
 
 function closeLightBox() {
   let lightBox = document.getElementById('lightBox_modal');

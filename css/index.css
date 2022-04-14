@@ -301,6 +301,10 @@ body #photographerSection .article__bot .price {
   margin-bottom: 20px;
 }
 
+#displayMedia .domCard__media {
+  border: 1px solid white;
+}
+
 #displayMedia .domCard__media video {
   max-width: 350px;
   max-height: 300px;
