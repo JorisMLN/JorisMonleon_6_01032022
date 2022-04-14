@@ -256,8 +256,29 @@ function displayLightBox() {
       slotToDisplay.setAttribute("src", srcValue);
       lightBox.style.display = "block";
 
-      arrayPlusOne(arrayOfPhotoSource, srcValue);
-      arrayLessOne(arrayOfPhotoSource, srcValue);
+      arrayPlusOne(arrayOfPhotoSource);
+      arrayLessOne(arrayOfPhotoSource);
+      keyboardNav(arrayOfPhotoSource);
+
+      function keyboardNav() {
+        document.onkeydown = keyLog;
+
+        function keyLog(event) {
+          let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+
+          switch (event.code) {
+            case 'ArrowRight':
+              indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+              srcValue = arrayOfPhotoSource[indexOfMedia + 1];
+              slotToDisplay.setAttribute("src", srcValue);
+              break;
+            case 'ArrowLeft':
+              indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+              srcValue = arrayOfPhotoSource[indexOfMedia - 1];
+              slotToDisplay.setAttribute("src", srcValue);
+          }
+        }
+      }
 
       function arrayPlusOne(arrayOfPhotoSource) {
         let rightArrow = document.getElementById('rightArrow');
@@ -269,9 +290,6 @@ function displayLightBox() {
 
           srcValue = arrayOfPhotoSource[indexOfMedia + 1];
           slotToDisplay.setAttribute("src", srcValue);
-
-          // arrayPlusOne(arrayOfPhotoSource, srcValue);
-          // arrayLessOne(arrayOfPhotoSource, srcValue);
         })
       }
 
@@ -283,14 +301,13 @@ function displayLightBox() {
 
           srcValue = arrayOfPhotoSource[indexOfMedia - 1];
           slotToDisplay.setAttribute("src", srcValue);
-
-          // arrayLessOne(arrayOfPhotoSource, srcValue);
-          // arrayPlusOne(arrayOfPhotoSource, srcValue);
         })
       }
     })
   })
 }
+
+
 
 function closeLightBox() {
   let lightBox = document.getElementById('lightBox_modal');
@@ -299,3 +316,4 @@ function closeLightBox() {
     lightBox.style.display = "none";
   })
 }
+

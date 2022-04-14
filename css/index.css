@@ -293,15 +293,12 @@ body #photographerSection .article__bot .price {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 350px;
   height: 350px;
   margin-bottom: 20px;
-}
-
-#displayMedia .domCard__media {
-  border: 1px solid red;
-  width: 350px;
-  height: 300px;
 }
 
 #displayMedia .domCard__media video {
@@ -317,7 +314,6 @@ body #photographerSection .article__bot .price {
 }
 
 #displayMedia .domCard__bot {
-  border: 1px solid yellowgreen;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -336,14 +332,6 @@ body #photographerSection .article__bot .price {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-#displayMedia .domCard__bot--likes--count {
-  border: 1px solid red;
-}
-
-#displayMedia .domCard__bot--likes .likesBtn {
-  border: 1px solid red;
 }
 
 #contact_modal {
@@ -464,6 +452,7 @@ body #photographerSection .article__bot .price {
   z-index: 1;
   height: 100%;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 #lightBox_modal .lightBox {
@@ -483,25 +472,43 @@ body #photographerSection .article__bot .price {
   background-color: white;
   width: 500px;
   height: 500px;
-  border: 1px solid black;
   margin: auto;
   margin-top: 150px;
 }
 
+#lightBox_modal .lightBox #closeLightBoxBtn {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: -50px;
+  width: 30px;
+  color: #901C1C;
+}
+
 #lightBox_modal .lightBox__left {
-  border: 1px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
   width: 8%;
 }
 
 #lightBox_modal .lightBox__left #leftArrow {
-  width: 90%;
-  height: 50px;
-  border: 1px solid green;
+  color: #901C1C;
+  background-color: white;
+  width: 30px;
 }
 
 #lightBox_modal .lightBox__display {
-  border: 1px solid #D3573C;
   width: 80%;
   height: 100%;
   overflow: hidden;
@@ -513,15 +520,27 @@ body #photographerSection .article__bot .price {
 }
 
 #lightBox_modal .lightBox__right {
-  border: 1px solid blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
   width: 8%;
 }
 
 #lightBox_modal .lightBox__right #rightArrow {
-  width: 90%;
-  height: 50px;
-  border: 1px solid green;
+  color: #901C1C;
+  background-color: white;
+  width: 30px;
 }
 
 #fixedInfo {

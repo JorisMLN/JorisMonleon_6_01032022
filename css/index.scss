@@ -205,14 +205,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
     width: 350px;
     height: 350px;
     margin-bottom: 20px;
+    // border: 1px solid blue;
 
     &__media {
-      border: 1px solid red;
-      width: 350px;
-      height: 300px;
+      // border: 1px solid red;
+      // width: 350px;
+      // height: 300px;
 
       video {
         max-width: 350px;
@@ -228,7 +230,7 @@ body {
     }
 
     &__bot {
-      border: 1px solid yellowgreen;
+      // border: 1px solid yellowgreen;
       display: flex;
       justify-content: space-between;
       font-size: 20px;
@@ -239,11 +241,11 @@ body {
         align-items: center;
 
         &--count{
-          border: 1px solid red;
+          // border: 1px solid red;
         }
 
         .likesBtn{
-          border: 1px solid red;
+          // border: 1px solid red;
         }
 
         // .img {
@@ -350,6 +352,7 @@ body {
   z-index: 1;
   height: 100%;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
 
   .lightBox {
     display: flex;
@@ -359,23 +362,32 @@ body {
     background-color: white;
     width: 500px;
     height: 500px;
-    border: 1px solid black;
     margin: auto;
     margin-top: 150px;
 
+    #closeLightBoxBtn{
+      align-self: flex-start;
+      margin-left: -50px;
+      width: 30px;
+      // background-color: white;
+      color: #901C1C;
+    }
+
     &__left {
-      border: 1px solid red;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       height: 100%;
       width: 8%;
       #leftArrow{
-        width: 90%;
-        height: 50px;
-        border: 1px solid green;
+        color: #901C1C;
+        background-color: white;
+        width: 30px;
       }
     }
 
     &__display {
-      border: 1px solid #D3573C;
       width: 80%;
       height: 100%;
       overflow: hidden;
@@ -387,13 +399,16 @@ body {
     }
 
     &__right {
-      border: 1px solid blue;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       height: 100%;
       width: 8%;
       #rightArrow{
-        width: 90%;
-        height: 50px;
-        border: 1px solid green;
+        color: #901C1C;
+        background-color: white;
+        width: 30px;
       }
     }
   }
