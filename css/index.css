@@ -273,11 +273,13 @@ body #photographerSection .article__bot .price {
 
 .mainProfil .trier .dropdown .dropdown-menu {
   background-color: #901C1C;
+  border-radius: 5px;
 }
 
 .mainProfil .trier .dropdown .dropdown-menu li {
   width: 150px;
   margin: 5px;
+  border-radius: 5px;
 }
 
 .mainProfil .trier .dropdown .dropdown-menu li .popBtn {

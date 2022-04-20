@@ -187,9 +187,11 @@ body {
       }
       .dropdown-menu {
         background-color: #901C1C;
+        border-radius: 5px;
         li {
           width: 150px;
           margin: 5px;
+          border-radius: 5px;
           .popBtn {
             background-color: #901C1C;
             color: white;
@@ -199,7 +201,6 @@ body {
           .titleBtn {
             background-color: #901C1C;
             color: white;
-            
           }
 
           .dateBtn {

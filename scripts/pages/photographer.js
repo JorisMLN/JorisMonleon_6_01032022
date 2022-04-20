@@ -231,14 +231,14 @@ function toggleHiddenSort() {
 function displayModal(photographer) {
   const openModalBtn = document.getElementById('openModalBtn');
   let modalTitleName = document.getElementById('modalTitleName');
-  console.log(modalTitleName);
+  let firstNameInput = document.getElementById('firstName');
+  console.log(firstNameInput);
 
   openModalBtn.addEventListener('click', () => {
     const modal = document.getElementById('contact_modal');
     modal.style.display = 'block';
-    console.log(photographer[0].name);
-
     modalTitleName.textContent = `${photographer[0].name}`;
+    // firstNameInput.autofocus = 'true';
   });
 }
 
