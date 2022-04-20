@@ -210,13 +210,20 @@ function likesManager() {
 
 }
 
-// function toggleHiddenSort() {
-//   let sortButton = document.getElementById('dropdownMenuButton1');
-//   sortButton.addEventListener('click', () => {
-//     // sortButton.classList.remove('show');
-//     // sortBloc.classList.add('hidden');
-//   })
-// }
+function toggleHiddenSort() {
+  let sortButton = document.getElementById('dropdownMenuButton1');
+  let sortMenu = document.getElementById('sortMenu');
+
+  sortButton.addEventListener('click', () => {
+    sortMenu.classList.add('show');
+    sortButton.classList.add('hidden');
+  })
+
+  sortMenu.addEventListener('click', () => {
+    sortMenu.classList.remove('show');
+    sortButton.classList.remove('hidden');
+  })
+}
 
 
 //####################################################################################################################################

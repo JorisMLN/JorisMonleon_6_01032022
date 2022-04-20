@@ -175,12 +175,15 @@ body {
     margin-bottom: 30px;
 
     .dropdown {
+      width: 162px;
+      height: 40px;
+
       #dropdownMenuButton1{
         width: 160px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         background-color: #901C1C;
+      }
+      .hidden{
+        display: none;
       }
       .dropdown-menu {
         background-color: #901C1C;
@@ -203,10 +206,6 @@ body {
       }
     }
   }
-}
-
-.hidden{
-  display: none;
 }
 
 #displayMedia {
@@ -372,8 +371,6 @@ body {
       align-self: flex-start;
       margin-left: -50px;
       font-size: 40px;
-      // width: 30px;
-      // background-color: white;
       color: #901C1C;
     }
 

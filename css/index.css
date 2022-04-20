@@ -257,18 +257,18 @@ body #photographerSection .article__bot .price {
   margin-bottom: 30px;
 }
 
+.mainProfil .trier .dropdown {
+  width: 162px;
+  height: 40px;
+}
+
 .mainProfil .trier .dropdown #dropdownMenuButton1 {
   width: 160px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: #901C1C;
+}
+
+.mainProfil .trier .dropdown .hidden {
+  display: none;
 }
 
 .mainProfil .trier .dropdown .dropdown-menu {
@@ -288,10 +288,6 @@ body #photographerSection .article__bot .price {
 .mainProfil .trier .dropdown .dropdown-menu li .dateBtn {
   background-color: #901C1C;
   color: white;
-}
-
-.hidden {
-  display: none;
 }
 
 #displayMedia {
