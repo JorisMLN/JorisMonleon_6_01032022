@@ -188,19 +188,24 @@ body {
       .dropdown-menu {
         background-color: #901C1C;
         li {
+          width: 150px;
+          margin: 5px;
           .popBtn {
             background-color: #901C1C;
             color: white;
+            border-bottom: 1px solid white;
           }
 
           .titleBtn {
             background-color: #901C1C;
             color: white;
+            
           }
 
           .dateBtn {
             background-color: #901C1C;
             color: white;
+            border-bottom: 1px solid white;
           }
         }
       }
@@ -278,10 +283,10 @@ body {
     background-color: #DB8876;
     border: 1px solid #DB8876;
     width: 600px;
-    height: 800px;
-    padding: 35px;
+    height: 900px;
+    padding: 20px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 40px;
 
     header {
       justify-content: space-between;
@@ -295,6 +300,12 @@ body {
         font-size: 64px;
         font-weight: normal;
         text-align: center;
+      }
+
+      #modalTitleName{
+        font-size: 50px;
+        height: 50px;
+        color: #312E2E;
       }
     }
 
@@ -330,6 +341,7 @@ body {
 
         #message {
           font-size: 36px;
+          height: 170px;
         }
 
         input {
@@ -341,8 +353,12 @@ body {
       }
 
       #contact_button {
-        border: 1px solid black;
-        border-radius: 2px;
+        border: 1px solid #901C1C;
+        background-color: #901C1C;
+        color: white;
+        border-radius: 3px;
+        width: 170px;
+        height: 69px;
       }
     }
   }
@@ -420,10 +436,11 @@ body {
   justify-content: space-around;
   align-items: center;
   width: 376px;
-  height: 89px;
+  height: 60px;
   background-color: #DB8876;
   border-radius: 2px 2px 0px 0px;
   position: fixed;
   bottom: 0;
   right: 10%;
+  font-size: 22px;
 }

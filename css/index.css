@@ -275,9 +275,15 @@ body #photographerSection .article__bot .price {
   background-color: #901C1C;
 }
 
+.mainProfil .trier .dropdown .dropdown-menu li {
+  width: 150px;
+  margin: 5px;
+}
+
 .mainProfil .trier .dropdown .dropdown-menu li .popBtn {
   background-color: #901C1C;
   color: white;
+  border-bottom: 1px solid white;
 }
 
 .mainProfil .trier .dropdown .dropdown-menu li .titleBtn {
@@ -288,6 +294,7 @@ body #photographerSection .article__bot .price {
 .mainProfil .trier .dropdown .dropdown-menu li .dateBtn {
   background-color: #901C1C;
   color: white;
+  border-bottom: 1px solid white;
 }
 
 #displayMedia {
@@ -393,10 +400,10 @@ body #photographerSection .article__bot .price {
   background-color: #DB8876;
   border: 1px solid #DB8876;
   width: 600px;
-  height: 800px;
-  padding: 35px;
+  height: 900px;
+  padding: 20px;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 #contact_modal .modalForm header {
@@ -414,6 +421,12 @@ body #photographerSection .article__bot .price {
   font-size: 64px;
   font-weight: normal;
   text-align: center;
+}
+
+#contact_modal .modalForm header #modalTitleName {
+  font-size: 50px;
+  height: 50px;
+  color: #312E2E;
 }
 
 #contact_modal .modalForm form {
@@ -464,6 +477,7 @@ body #photographerSection .article__bot .price {
 
 #contact_modal .modalForm form div #message {
   font-size: 36px;
+  height: 170px;
 }
 
 #contact_modal .modalForm form div input {
@@ -474,8 +488,12 @@ body #photographerSection .article__bot .price {
 }
 
 #contact_modal .modalForm form #contact_button {
-  border: 1px solid black;
-  border-radius: 2px;
+  border: 1px solid #901C1C;
+  background-color: #901C1C;
+  color: white;
+  border-radius: 3px;
+  width: 170px;
+  height: 69px;
 }
 
 #lightBox_modal {
@@ -585,11 +603,12 @@ body #photographerSection .article__bot .price {
       -ms-flex-align: center;
           align-items: center;
   width: 376px;
-  height: 89px;
+  height: 60px;
   background-color: #DB8876;
   border-radius: 2px 2px 0px 0px;
   position: fixed;
   bottom: 0;
   right: 10%;
+  font-size: 22px;
 }
 /*# sourceMappingURL=index.css.map */

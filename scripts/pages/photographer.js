@@ -30,7 +30,7 @@ function main() {
 
   headerSettings(photographerFiltered);
   mediaDisplay(media, photographerID);
-  displayModal();
+  displayModal(photographerFiltered);
   sendForm();
   closeModal();
   displayLightBox();
@@ -180,8 +180,8 @@ function fixedInfoDisplay(media, photographers) {
     totalLikes += likes[i];
   }
 
-  let htmlLikes = `<div>${totalLikes} likes</div>`;
-  let htmlPrice = `<div>${price} / jour</div>`;
+  let htmlLikes = `<div>${totalLikes} <div class="fa-solid fa-heart likesBtn"></div></div>`;
+  let htmlPrice = `<div>${price}€ / jour</div>`;
   fixedInfoBloc.innerHTML = htmlLikes + htmlPrice;
 }
 
@@ -228,13 +228,17 @@ function toggleHiddenSort() {
 
 //####################################################################################################################################
 // Modal Manager
-function displayModal() {
+function displayModal(photographer) {
   const openModalBtn = document.getElementById('openModalBtn');
+  let modalTitleName = document.getElementById('modalTitleName');
+  console.log(modalTitleName);
 
   openModalBtn.addEventListener('click', () => {
     const modal = document.getElementById('contact_modal');
     modal.style.display = 'block';
-    console.log('openTest');
+    console.log(photographer[0].name);
+
+    modalTitleName.textContent = `${photographer[0].name}`;
   });
 }
 
