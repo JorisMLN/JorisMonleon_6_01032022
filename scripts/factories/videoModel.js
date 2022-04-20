@@ -15,7 +15,7 @@ class VideoModel extends Media {
         <div>${this.title}</div>
         <div class='domCard__bot--likes'>
           <div id='${this.id}' class='domCard__bot--likes--count'>${this.likes}</div>
-          <img data-id=${this.id} class='likesBtn' alt='button like' src="assets/icons/heart.png" />
+          <div data-id=${this.id} class="fa-solid fa-heart likesBtn"></div>
         </div>  
       </div>
     </div>`;

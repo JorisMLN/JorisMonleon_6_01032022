@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
 
   <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/e7a1eca83b.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/1ccfa1f992.js" crossorigin="anonymous"></script>
 
   <!-- CSS -->
   <link href="css/index.css" rel="stylesheet" type="text/css" />
@@ -24,7 +24,7 @@
 
 <body>
   <header>
-    <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+    <a href="index.html"><img alt="fisheye logo" src="assets/images/logo.png" class="logo" /></a>
   </header>
   <main class="mainProfil">
     <div class="photograph-header">
@@ -52,18 +52,18 @@
     <div id="modal" class="modalForm">
       <header>
         <h2>Contactez-moi</h2>
-        <img tabindex="0" id='closeModalBtn' src="assets/icons/close.svg" />
+        <img alt="croix de fermeture du formulaire" tabindex="0" id='closeModalBtn' src="assets/icons/close.svg" />
       </header>
       <form>
         <div>
-          <label>Prénom</label>
-          <input id="firstName" />
-          <label>Nom</label>
-          <input id="lastName" />
-          <label>Email</label>
-          <input id="mail" />
-          <label>Votre Message</label>
-          <input id="message" />
+          <label for="firstName">Prénom</label>
+          <input name="firstName" id="firstName" autofocus />
+          <label for="lastName">Nom</label>
+          <input name="lastNameName" id="lastName" />
+          <label for="mail">Email</label>
+          <input name="mail" id="mail" />
+          <label for="message">Votre Message</label>
+          <input name="message" id="message" />
         </div>
         <button id="contact_button">Envoyer</button>
       </form>
@@ -72,14 +72,13 @@
   <div id="lightBox_modal">
     <div id="lightBox" class="lightBox">
       <div class="lightBox__left">
-        <!-- <i id="leftArrow" class="fa-solid fa-angle-left"></i> -->
-        <img id="leftArrow" src="assets/icons/left-arrow.png" class="logo" />
+        <div id="leftArrow" class="fa-solid fa-angle-left"></div>
       </div>
-      <img id='lightBox__display' class='lightBox__display' />
+      <img alt="photo selectionne" id='lightBox__display' class='lightBox__display' />
       <div class="lightBox__right">
-        <img id="rightArrow" src="assets/icons/right-arrow.png" class="logo" />
+        <div id="rightArrow" class="fa-solid fa-angle-right"></div>
       </div>
-      <img id='closeLightBoxBtn' src="assets/icons/close.svg" />
+      <div id='closeLightBoxBtn' class="fa-solid fa-xmark"></div>
     </div>
   </div>
   <div id="fixedInfo">

@@ -36,6 +36,7 @@ function main() {
   displayLightBox();
   closeLightBox();
   fixedInfoDisplay(media, photographerFiltered);
+  toggleHiddenSort();
 }
 
 function headerSettings(settings) {
@@ -208,6 +209,16 @@ function likesManager() {
   })
 
 }
+
+// function toggleHiddenSort() {
+//   let sortButton = document.getElementById('dropdownMenuButton1');
+//   sortButton.addEventListener('click', () => {
+//     // sortButton.classList.remove('show');
+//     // sortBloc.classList.add('hidden');
+//   })
+// }
+
+
 //####################################################################################################################################
 // Modal Manager
 function displayModal() {

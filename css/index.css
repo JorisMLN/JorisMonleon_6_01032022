@@ -258,7 +258,7 @@ body #photographerSection .article__bot .price {
 }
 
 .mainProfil .trier .dropdown #dropdownMenuButton1 {
-  width: 120px;
+  width: 160px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -268,18 +268,30 @@ body #photographerSection .article__bot .price {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #901C1C;
+}
+
+.mainProfil .trier .dropdown .dropdown-menu {
+  background-color: #901C1C;
 }
 
 .mainProfil .trier .dropdown .dropdown-menu li .popBtn {
-  background-color: white;
+  background-color: #901C1C;
+  color: white;
 }
 
 .mainProfil .trier .dropdown .dropdown-menu li .titleBtn {
-  background-color: white;
+  background-color: #901C1C;
+  color: white;
 }
 
 .mainProfil .trier .dropdown .dropdown-menu li .dateBtn {
-  background-color: white;
+  background-color: #901C1C;
+  color: white;
+}
+
+.hidden {
+  display: none;
 }
 
 #displayMedia {
@@ -339,6 +351,7 @@ body #photographerSection .article__bot .price {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-size: 20px;
+  color: #901C1C;
 }
 
 #displayMedia .domCard__bot--likes {
@@ -350,6 +363,11 @@ body #photographerSection .article__bot .price {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#displayMedia .domCard__bot--likes .likesBtn {
+  color: #901C1C;
+  margin-left: 4px;
 }
 
 #contact_modal {
@@ -498,7 +516,7 @@ body #photographerSection .article__bot .price {
   -ms-flex-item-align: start;
       align-self: flex-start;
   margin-left: -50px;
-  width: 30px;
+  font-size: 40px;
   color: #901C1C;
 }
 
@@ -523,7 +541,7 @@ body #photographerSection .article__bot .price {
 #lightBox_modal .lightBox__left #leftArrow {
   color: #901C1C;
   background-color: white;
-  width: 30px;
+  font-size: 40px;
 }
 
 #lightBox_modal .lightBox__display {
@@ -558,7 +576,7 @@ body #photographerSection .article__bot .price {
 #lightBox_modal .lightBox__right #rightArrow {
   color: #901C1C;
   background-color: white;
-  width: 30px;
+  font-size: 40px;
 }
 
 #fixedInfo {
