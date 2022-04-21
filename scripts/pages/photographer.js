@@ -61,7 +61,7 @@ function headerSettings(settings) {
 
   let leftSide = document.getElementById('headerLeft');
   let leftHtml = `
-    <div class='name'>${profil.name}</div>
+    <h1 class='name'>${profil.name}</h1>
     <div class='city'>${profil.city} ${profil.country}</div>
     <div class='tag'>${profil.tagline}</div>
   `;
@@ -187,7 +187,6 @@ function fixedInfoDisplay(media, photographers) {
 
 function likesManager() {
   let likesBtn = document.getElementsByClassName('likesBtn');
-  console.log(likesBtn);
 
   Array.from(likesBtn).map(btn => {
     btn.addEventListener('click', function () {
@@ -199,7 +198,6 @@ function likesManager() {
           console.log(item);
 
           let likesCount = document.getElementById(`${btn.dataset.id}`);
-          console.log(likesCount);
           likesCount.innerHTML = item.likes;
 
           fixedInfoDisplay(media, photographerFiltered);
