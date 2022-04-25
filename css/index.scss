@@ -309,10 +309,14 @@ body {
       justify-content: space-between;
       width: 100%;
 
-      img {
-        cursor: pointer;
+      button{
+        border: none;
+        background-color: #DB8876;
+        img {
+          cursor: pointer;
+        }
       }
-
+      
       h2 {
         font-size: 64px;
         font-weight: normal;

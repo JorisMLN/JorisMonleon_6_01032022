@@ -450,7 +450,12 @@ body #photographerSection .article__bot .price {
   width: 100%;
 }
 
-#contact_modal .modalForm header img {
+#contact_modal .modalForm header button {
+  border: none;
+  background-color: #DB8876;
+}
+
+#contact_modal .modalForm header button img {
   cursor: pointer;
 }
 

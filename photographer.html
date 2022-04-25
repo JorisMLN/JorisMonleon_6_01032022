@@ -38,9 +38,9 @@
           Popularité
         </button>
         <ul id="sortMenu" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a tabindex='0' class="dropdown-item popBtn" href="#">Popularité</a></li>
-          <li><a tabindex='0' class="dropdown-item dateBtn" href="#">Date</a></li>
-          <li><a tabindex='0' class="dropdown-item titleBtn" href="#">Titre</a></li>
+          <li><a tabindex='1' class="dropdown-item popBtn" href="#">Popularité</a></li>
+          <li><a tabindex='1' class="dropdown-item dateBtn" href="#">Date</a></li>
+          <li><a tabindex='1' class="dropdown-item titleBtn" href="#">Titre</a></li>
         </ul>
       </div>
     </div>
@@ -53,7 +53,9 @@
           <h2 id="modalTitle">Contactez-moi</h2>
           <div id="modalTitleName"></div>
         </div>
-        <img alt="croix de fermeture du formulaire" tabindex="0" id='closeModalBtn' src="assets/icons/close.svg" />
+        <button id='closeModalBtn'>
+          <img alt="croix de fermeture du formulaire"  src="assets/icons/close.svg" />
+        </button>
       </header>
       <form>
         <div>
@@ -82,7 +84,7 @@
       <div class="lightBox__right">
         <div id="rightArrow" class="fa-solid fa-angle-right"></div>
       </div>
-      
+
       <div id='closeLightBoxBtn' class="fa-solid fa-xmark"></div>
     </div>
   </div>

@@ -85,7 +85,6 @@ function mediaDisplay(media, photographerID) {
     .map(media => factory(media))
   // - - - - -
 
-  console.log(result)
   displayArt(result);
   likesManager()
   sortByDropdown(media, photographerID)
@@ -237,7 +236,6 @@ function displayModal(photographer) {
     modal.style.display = 'block';
     modalTitleName.textContent = `${photographer[0].name}`;
     document.getElementById('firstName').focus();
-    // firstNameInput.autofocus = 'true';
   });
 }
 
@@ -246,16 +244,9 @@ function closeModal() {
   const modal = document.getElementById('contact_modal');
 
   closeModalBtn.addEventListener('click', () => {
+    console.log('close form')
     modal.style.display = 'none';
   });
-
-  document.onkeydown = keyLog;
-
-  function keyLog(event) {
-    if (event.code === 'Enter') {
-      modal.style.display = 'none';
-    }
-  }
 }
 
 function sendForm() {
@@ -276,6 +267,8 @@ function sendForm() {
   }, { once: true })
 }
 
+//####################################################################################################################################
+// Light Box Manager
 function displayLightBox() {
   let lightBox = document.getElementById('lightBox_modal');
   let mediaToView = document.getElementsByClassName('domCard__media--photo');
@@ -283,23 +276,23 @@ function displayLightBox() {
   let arrayOfPhotoSource = [];
 
   Array.from(mediaToView).forEach((photo) => {
-
     arrayOfPhotoSource.push(photo.attributes.src.value);
+
     photo.addEventListener('click', function (event) {
       event.preventDefault();
+      console.log(event.target);
 
       let srcValue = event.target.attributes.src.value;
-      slotToDisplay.setAttribute("src", srcValue);
+      slotToDisplay.setAttribute("src", srcValue);          
       lightBox.style.display = "block";
 
-      arrayPlusOne(arrayOfPhotoSource);
-      arrayLessOne(arrayOfPhotoSource);
+      arrayPlusOne(arrayOfPhotoSource, srcValue);
+      arrayLessOne(arrayOfPhotoSource, srcValue);
       keyboardNav(arrayOfPhotoSource);
 
-      function keyboardNav() {
+      function keyboardNav(arrayOfPhotoSource) {
+        
         document.onkeydown = keyLog;
-
-
         function keyLog(event) {
           let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
 
@@ -316,36 +309,76 @@ function displayLightBox() {
           }
         }
       }
-
-      function arrayPlusOne(arrayOfPhotoSource) {
-        let rightArrow = document.getElementById('rightArrow');
-
-        rightArrow.addEventListener('click', function () {
-          let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
-
-          console.log(arrayOfPhotoSource.indexOf(srcValue));
-
-          srcValue = arrayOfPhotoSource[indexOfMedia + 1];
-          slotToDisplay.setAttribute("src", srcValue);
-        })
-      }
-
-      function arrayLessOne(arrayOfPhotoSource) {
-        let leftArrow = document.getElementById('leftArrow');
-
-        leftArrow.addEventListener('click', function () {
-          let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
-
-          srcValue = arrayOfPhotoSource[indexOfMedia - 1];
-          slotToDisplay.setAttribute("src", srcValue);
-        })
-      }
     })
+
+    document.onkeydown = keyEnter;
+    function keyEnter(event){
+    
+      if(event.code === 'Enter'){
+        let srcValue = event.target.firstElementChild.firstElementChild.attributes.src.value;  
+
+        slotToDisplay.setAttribute("src", srcValue);
+        lightBox.style.display = "block";
+
+        arrayPlusOne(arrayOfPhotoSource, srcValue);
+        arrayLessOne(arrayOfPhotoSource, srcValue);
+        keyboardNav2(arrayOfPhotoSource);
+
+        function keyboardNav2(arrayOfPhotoSource) {
+        
+          document.onkeydown = keyLog;
+          function keyLog(event) {
+            let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+  
+            switch (event.code) {
+              case 'ArrowRight':
+                indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+                srcValue = arrayOfPhotoSource[indexOfMedia + 1];
+                slotToDisplay.setAttribute("src", srcValue);
+                break;
+              case 'ArrowLeft':
+                indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+                srcValue = arrayOfPhotoSource[indexOfMedia - 1];
+                slotToDisplay.setAttribute("src", srcValue);
+                break;
+              case 'Backspace':
+                lightBox.style.display = "none";
+                break;
+            }
+          }
+        }
+      }
+    }
+
+    function arrayPlusOne(arrayOfPhotoSource, srcValue) {
+      let rightArrow = document.getElementById('rightArrow');
+
+      rightArrow.addEventListener('click', function () {
+        let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+
+        console.log(arrayOfPhotoSource.indexOf(srcValue));
+
+        srcValue = arrayOfPhotoSource[indexOfMedia + 1];
+        slotToDisplay.setAttribute("src", srcValue);
+      })
+    }
+
+    function arrayLessOne(arrayOfPhotoSource, srcValue) {
+      let leftArrow = document.getElementById('leftArrow');
+
+      leftArrow.addEventListener('click', function () {
+        let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+
+        srcValue = arrayOfPhotoSource[indexOfMedia - 1];
+        slotToDisplay.setAttribute("src", srcValue);
+      })
+    }
   })
 }
 
 function closeLightBox() {
   let lightBox = document.getElementById('lightBox_modal');
+
   let closeBtn = document.getElementById('closeLightBoxBtn');
   closeBtn.addEventListener('click', function () {
     lightBox.style.display = "none";
