@@ -88,17 +88,32 @@ body #photographerSection .article__top {
           align-items: center;
   width: 99%;
   height: 80%;
+  overflow: hidden;
+}
+
+body #photographerSection .article__top a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  overflow: hidden;
+}
+
+body #photographerSection .article__top a .photo {
+  height: 300px;
 }
 
 body #photographerSection .article__top h2 {
   color: #D3573C;
   font-size: 30px;
-}
-
-body #photographerSection .article__top .photo {
-  width: 200px;
-  height: 200px;
-  border-radius: 200px;
 }
 
 body #photographerSection .article__bot {
@@ -208,10 +223,24 @@ body #photographerSection .article__bot .price {
   height: 90%;
 }
 
-.mainProfil .photograph-header #headerRight .photo {
+.mainProfil .photograph-header #headerRight .photoBloc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-radius: 200px;
   width: 200px;
   height: 200px;
+  overflow: hidden;
+}
+
+.mainProfil .photograph-header #headerRight .photoBloc .photo {
+  height: 300px;
 }
 
 .mainProfil .photograph-header .contact_button {
@@ -334,17 +363,23 @@ body #photographerSection .article__bot .price {
   width: 100%;
   height: 90%;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #displayMedia .domCard__media video {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  width: 550px;
 }
 
 #displayMedia .domCard__media--photo {
-  width: 100%;
-  overflow: hidden;
+  width: 500px;
 }
 
 #displayMedia .domCard__bot {
@@ -521,19 +556,19 @@ body #photographerSection .article__bot .price {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: white;
-  width: 500px;
-  height: 500px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 30px;
 }
 
 #lightBox_modal .lightBox #closeLightBoxBtn {
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin-left: -50px;
   font-size: 40px;
   color: #901C1C;
+  margin-left: -10px;
 }
 
 #lightBox_modal .lightBox__left {
@@ -556,14 +591,12 @@ body #photographerSection .article__bot .price {
 
 #lightBox_modal .lightBox__left #leftArrow {
   color: #901C1C;
-  background-color: white;
   font-size: 40px;
+  margin-right: 13px;
 }
 
 #lightBox_modal .lightBox__display {
-  width: 80%;
-  height: 100%;
-  overflow: hidden;
+  height: 900px;
 }
 
 #lightBox_modal .lightBox img {
@@ -593,6 +626,7 @@ body #photographerSection .article__bot .price {
   color: #901C1C;
   background-color: white;
   font-size: 40px;
+  margin-left: 13px;
 }
 
 #fixedInfo {

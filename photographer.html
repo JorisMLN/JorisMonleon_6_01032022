@@ -22,25 +22,25 @@
 
 <body>
   <header>
-    <a href="index.html"><img alt="fisheye logo" src="assets/images/logo.png" class="logo" /></a>
+    <a tabindex='1' href="index.html"><img alt="fisheye logo" src="assets/images/logo.png" class="logo" /></a>
   </header>
   <main class="mainProfil">
     <div class="photograph-header">
       <div id='headerLeft'></div>
-      <button id='openModalBtn' class="contact_button">Contactez-moi</button>
+      <button tabindex='1' id='openModalBtn' class="contact_button">Contactez-moi</button>
       <div id='headerRight'></div>
     </div>
     <div class="trier">
       <div>Trier par</div>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+        <button tabindex='1' class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
           data-bs-toggle="dropdown" aria-expanded="false">
           Popularité
         </button>
         <ul id="sortMenu" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item popBtn" href="#">Popularité</a></li>
-          <li><a class="dropdown-item dateBtn" href="#">Date</a></li>
-          <li><a class="dropdown-item titleBtn" href="#">Titre</a></li>
+          <li><a tabindex='0' class="dropdown-item popBtn" href="#">Popularité</a></li>
+          <li><a tabindex='0' class="dropdown-item dateBtn" href="#">Date</a></li>
+          <li><a tabindex='0' class="dropdown-item titleBtn" href="#">Titre</a></li>
         </ul>
       </div>
     </div>
@@ -58,7 +58,7 @@
       <form>
         <div>
           <label for="firstName">Prénom</label>
-          <input name="firstName" id="firstName" autofocus />
+          <input name="firstName" id="firstName" autofocus/>
           <label for="lastName">Nom</label>
           <input name="lastNameName" id="lastName" />
           <label for="mail">Email</label>
@@ -72,13 +72,17 @@
   </div>
   <div id="lightBox_modal">
     <div id="lightBox" class="lightBox">
+
       <div class="lightBox__left">
         <div id="leftArrow" class="fa-solid fa-angle-left"></div>
       </div>
+
       <img alt="photo selectionne" id='lightBox__display' class='lightBox__display' />
+
       <div class="lightBox__right">
         <div id="rightArrow" class="fa-solid fa-angle-right"></div>
       </div>
+      
       <div id='closeLightBoxBtn' class="fa-solid fa-xmark"></div>
     </div>
   </div>

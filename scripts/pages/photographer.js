@@ -70,7 +70,9 @@ function headerSettings(settings) {
 
   let rightSide = document.getElementById('headerRight');
   let rightHtml = `
-    <img class='photo' src='assets/photographers/${profil.photo}'></img>
+    <div class='photoBloc'>
+      <img class='photo' src='assets/photographers/${profil.photo}'></img>
+    </div>
   `;
   rightSide.innerHTML = rightHtml;
 }
@@ -228,14 +230,13 @@ function toggleHiddenSort() {
 // Modal Manager
 function displayModal(photographer) {
   const openModalBtn = document.getElementById('openModalBtn');
-  let modalTitleName = document.getElementById('modalTitleName');
-  let firstNameInput = document.getElementById('firstName');
-  console.log(firstNameInput);
+  let modalTitleName = document.getElementById('modalTitleName'); 
 
   openModalBtn.addEventListener('click', () => {
     const modal = document.getElementById('contact_modal');
     modal.style.display = 'block';
     modalTitleName.textContent = `${photographer[0].name}`;
+    document.getElementById('firstName').focus();
     // firstNameInput.autofocus = 'true';
   });
 }
