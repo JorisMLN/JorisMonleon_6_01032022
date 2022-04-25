@@ -4,7 +4,7 @@ function photographerFactory(data) {
   return `<article class='article'>
       <div class='article__top'>
         <a href='photographer.html?id=${id}'>
-          <img alt='Portrait du photographe ${name}' class='photo' src='assets/photographers/${portrait}'>
+          <img alt='Voir page du photographe ${name}' class='photo' src='assets/photographers/${portrait}'>
         </a>
         <h2>${name}</h2>
       </div>

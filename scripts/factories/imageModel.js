@@ -8,7 +8,7 @@ class ImageModel extends Media {
   getDomCard() {
     return `<div tabindex='1' class='domCard'>
       <div class='domCard__media'>
-        <img alt='photo a afficher' class='domCard__media--photo' src='assets/images/${this.photographerId}/${this.src}'></img>
+        <img alt='${this.title}' class='domCard__media--photo' src='assets/images/${this.photographerId}/${this.src}'></img>
       </div>
       <div class='domCard__bot'>
         <div>${this.title}</div>

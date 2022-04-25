@@ -272,6 +272,8 @@ function sendForm() {
 function displayLightBox() {
   let lightBox = document.getElementById('lightBox_modal');
   let mediaToView = document.getElementsByClassName('domCard__media--photo');
+  console.log(mediaToView);
+
   let slotToDisplay = document.getElementById('lightBox__display');
   let arrayOfPhotoSource = [];
 
@@ -280,6 +282,7 @@ function displayLightBox() {
 
     photo.addEventListener('click', function (event) {
       event.preventDefault();
+      console.log('test')
       console.log(event.target);
 
       let srcValue = event.target.attributes.src.value;
@@ -355,8 +358,6 @@ function displayLightBox() {
 
       rightArrow.addEventListener('click', function () {
         let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
-
-        console.log(arrayOfPhotoSource.indexOf(srcValue));
 
         srcValue = arrayOfPhotoSource[indexOfMedia + 1];
         slotToDisplay.setAttribute("src", srcValue);
