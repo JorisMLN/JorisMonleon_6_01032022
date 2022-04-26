@@ -5,7 +5,6 @@ import ImageModel from '../factories/imageModel.js';
 
 let media = dataMedia;
 let photographerFiltered;
-console.log(media);
 
 main();
 
@@ -30,11 +29,14 @@ function main() {
 
   headerSettings(photographerFiltered);
   mediaDisplay(media, photographerID);
+
   displayModal(photographerFiltered);
   sendForm();
   closeModal();
+
   displayLightBox();
   closeLightBox();
+
   fixedInfoDisplay(media, photographerFiltered);
   toggleHiddenSort();
 }
@@ -56,8 +58,6 @@ function headerSettings(settings) {
     profil.photo = item.portrait;
     profil.tagline = item.tagline;
   })
-
-  console.log(profil);
 
   let leftSide = document.getElementById('headerLeft');
   let leftHtml = `
@@ -229,7 +229,7 @@ function toggleHiddenSort() {
 // Modal Manager
 function displayModal(photographer) {
   const openModalBtn = document.getElementById('openModalBtn');
-  let modalTitleName = document.getElementById('modalTitleName'); 
+  let modalTitleName = document.getElementById('modalTitleName');
 
   openModalBtn.addEventListener('click', () => {
     const modal = document.getElementById('contact_modal');
@@ -271,118 +271,175 @@ function sendForm() {
 // Light Box Manager
 function displayLightBox() {
   let lightBox = document.getElementById('lightBox_modal');
-  let mediaToView = document.getElementsByClassName('domCard__media--photo');
-  console.log(mediaToView);
+  let slotToDisplay = document.getElementById('lightBox__slot');
+  let arrayOfPhotoDisplayed = Array.from(document.getElementsByClassName('domCard__media--photo'));
 
-  let slotToDisplay = document.getElementById('lightBox__display');
-  let arrayOfPhotoSource = [];
+  const arrayOfSources = [];
+  console.log(arrayOfSources);
 
-  Array.from(mediaToView).forEach((photo) => {
-    arrayOfPhotoSource.push(photo.attributes.src.value);
+  // loop pour l'event de click
+  arrayOfPhotoDisplayed.forEach((photo) => {
+    arrayOfSources.push(photo.attributes.src.value);
 
+    // gestion de l'event de click
     photo.addEventListener('click', function (event) {
       event.preventDefault();
-      console.log('test')
-      console.log(event.target);
 
-      let srcValue = event.target.attributes.src.value;
-      slotToDisplay.setAttribute("src", srcValue);          
+      let srcFocus = event.target.attributes.src.value;
+      createChildElement(slotToDisplay, srcFocus);
       lightBox.style.display = "block";
-
-      arrayPlusOne(arrayOfPhotoSource, srcValue);
-      arrayLessOne(arrayOfPhotoSource, srcValue);
-      keyboardNav(arrayOfPhotoSource);
-
-      function keyboardNav(arrayOfPhotoSource) {
-        
-        document.onkeydown = keyLog;
-        function keyLog(event) {
-          let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
-
-          switch (event.code) {
-            case 'ArrowRight':
-              indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
-              srcValue = arrayOfPhotoSource[indexOfMedia + 1];
-              slotToDisplay.setAttribute("src", srcValue);
-              break;
-            case 'ArrowLeft':
-              indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
-              srcValue = arrayOfPhotoSource[indexOfMedia - 1];
-              slotToDisplay.setAttribute("src", srcValue);
-          }
-        }
-      }
+      arrayRightArrow(arrayOfSources, srcFocus);
+      arrayLeftArrow(arrayOfSources, srcFocus);
+      isManagingKeyboardNav(arrayOfSources, srcFocus);
     })
 
-    document.onkeydown = keyEnter;
-    function keyEnter(event){
-    
-      if(event.code === 'Enter'){
-        let srcValue = event.target.firstElementChild.firstElementChild.attributes.src.value;  
+    // gestion d'open de la modal au clavier
+    document.onkeydown = keyEnterLog;
+    function keyEnterLog(event) {
 
-        slotToDisplay.setAttribute("src", srcValue);
+      if (event.code === 'Enter') {
+
+        let srcFocus = event.target.firstElementChild.firstElementChild.attributes.src.value;
+        createChildElement(slotToDisplay, srcFocus);
         lightBox.style.display = "block";
 
-        arrayPlusOne(arrayOfPhotoSource, srcValue);
-        arrayLessOne(arrayOfPhotoSource, srcValue);
-        keyboardNav2(arrayOfPhotoSource);
-
-        function keyboardNav2(arrayOfPhotoSource) {
-        
-          document.onkeydown = keyLog;
-          function keyLog(event) {
-            let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
-  
-            switch (event.code) {
-              case 'ArrowRight':
-                indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
-                srcValue = arrayOfPhotoSource[indexOfMedia + 1];
-                slotToDisplay.setAttribute("src", srcValue);
-                break;
-              case 'ArrowLeft':
-                indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
-                srcValue = arrayOfPhotoSource[indexOfMedia - 1];
-                slotToDisplay.setAttribute("src", srcValue);
-                break;
-              case 'Backspace':
-                lightBox.style.display = "none";
-                break;
-            }
-          }
-        }
+        arrayRightArrow(arrayOfSources, srcFocus);
+        arrayLeftArrow(arrayOfSources, srcFocus);
+        isManagingKeyboardNav(arrayOfSources, srcFocus);
       }
     }
 
-    function arrayPlusOne(arrayOfPhotoSource, srcValue) {
+    // gestion du click sur une fleche droite
+    function arrayRightArrow(arrayOfSources, srcFocus) {
       let rightArrow = document.getElementById('rightArrow');
+      let imgSlot = document.getElementById('imgId');
 
+      // Ecoute de click fleche droite
       rightArrow.addEventListener('click', function () {
-        let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+        let indexOfThisPhoto = arrayOfSources.indexOf(srcFocus);
+        let actualIndex = indexOfThisPhoto + 1;
 
-        srcValue = arrayOfPhotoSource[indexOfMedia + 1];
-        slotToDisplay.setAttribute("src", srcValue);
+        if (actualIndex > (arrayOfSources.length - 1)) {
+          actualIndex = 0;
+          srcFocus = arrayOfSources[actualIndex];
+          imgSlot.setAttribute('src', srcFocus);
+        } else {
+          srcFocus = arrayOfSources[actualIndex];
+          imgSlot.setAttribute('src', srcFocus);
+        }
+      })
+    }
+    // gestion du click sur fleche gauche
+    function arrayLeftArrow(arrayOfSources, srcFocus) {
+      let leftArrow = document.getElementById('leftArrow');
+      let imgSlot = document.getElementById('imgId');
+
+      // Ecoute de click fleche gauche
+      leftArrow.addEventListener('click', function () {
+        let indexOfThisPhoto = arrayOfSources.indexOf(srcFocus);
+        let actualIndex = indexOfThisPhoto - 1;
+
+        if (actualIndex < 0) {
+          actualIndex = arrayOfSources.length - 1;
+          srcFocus = arrayOfSources[actualIndex];
+          imgSlot.setAttribute('src', srcFocus);
+        } else {
+          srcFocus = arrayOfSources[actualIndex];
+          imgSlot.setAttribute('src', srcFocus);
+        }
       })
     }
 
-    function arrayLessOne(arrayOfPhotoSource, srcValue) {
-      let leftArrow = document.getElementById('leftArrow');
+    // gestion de la navigation au clavier
+    function isManagingKeyboardNav(arrayOfSources, srcFocus) {
+      document.onkeydown = keyDownlog;
 
-      leftArrow.addEventListener('click', function () {
-        let indexOfMedia = arrayOfPhotoSource.indexOf(srcValue);
+      function keyDownlog(event) {
 
-        srcValue = arrayOfPhotoSource[indexOfMedia - 1];
-        slotToDisplay.setAttribute("src", srcValue);
-      })
+        let indexOfThisPhoto = arrayOfSources.indexOf(srcFocus);
+        let imgSlot = document.getElementById('imgId');
+        let actualIndex;
+
+        switch (event.code) {
+
+          case 'ArrowRight':
+            console.log(event.code, 'right');
+            indexOfThisPhoto = arrayOfSources.indexOf(srcFocus);
+            actualIndex = indexOfThisPhoto + 1;
+            if (actualIndex > (arrayOfSources.length - 1)) {
+              actualIndex = 0;
+              srcFocus = arrayOfSources[actualIndex];
+              imgSlot.setAttribute('src', srcFocus);
+            } else {
+              srcFocus = arrayOfSources[actualIndex];
+              imgSlot.setAttribute('src', srcFocus);
+            }
+            break;
+
+          case 'ArrowLeft':
+            console.log(event.code, 'left');
+            indexOfThisPhoto = arrayOfSources.indexOf(srcFocus);
+            actualIndex = indexOfThisPhoto - 1;
+            if (actualIndex < 0) {
+              actualIndex = arrayOfSources.length - 1;
+              srcFocus = arrayOfSources[actualIndex];
+              imgSlot.setAttribute('src', srcFocus);
+            } else {
+              srcFocus = arrayOfSources[actualIndex];
+              imgSlot.setAttribute('src', srcFocus);
+            }
+            break;
+
+          case 'Backspace':
+            console.log(event.code, 'back');
+            let slotToDisplay = document.getElementById('lightBox__slot');
+            let imgToRemove = document.getElementById('imgId');
+            slotToDisplay.removeChild(imgToRemove);
+            lightBox.style.display = "none";
+            break;
+        }
+      }
     }
   })
 }
 
+// creer l'element a display (image ou miniature video)
+function createChildElement(slotToDisplay, srcFocus) {
+  console.log(srcFocus);
+
+  const video = document.createElement('video');
+  const source = document.createElement('source');
+  source.setAttribute('src', srcFocus);
+  source.setAttribute('id', 'videoId');
+  video.appendChild(source);
+
+  const img = document.createElement('img');
+  img.setAttribute('src', srcFocus);
+  img.setAttribute('id', 'imgId');
+
+  let mimeType = srcFocus.split('.')[1];
+  console.log(mimeType);
+  if (mimeType === 'jpg') {
+    video.setAttribute('class', 'hidden');
+  } else {
+    img.setAttribute('class', 'hidden');
+  }
+
+  slotToDisplay.appendChild(img);
+  slotToDisplay.appendChild(video);
+  return slotToDisplay;
+}
+
+// ferme la modal et supprime l'element (image ou miniature video)
 function closeLightBox() {
   let lightBox = document.getElementById('lightBox_modal');
-
   let closeBtn = document.getElementById('closeLightBoxBtn');
+  let slotToDisplay = document.getElementById('lightBox__slot');
+
   closeBtn.addEventListener('click', function () {
+    let imgToRemove = document.getElementById('imgId');
+    slotToDisplay.removeChild(imgToRemove);
     lightBox.style.display = "none";
+    displayLightBox();
   })
 }
-

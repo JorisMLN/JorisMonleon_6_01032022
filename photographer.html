@@ -54,13 +54,13 @@
           <div id="modalTitleName"></div>
         </div>
         <button id='closeModalBtn'>
-          <img alt="croix de fermeture du formulaire"  src="assets/icons/close.svg" />
+          <img alt="croix de fermeture du formulaire" src="assets/icons/close.svg" />
         </button>
       </header>
       <form>
         <div>
           <label for="firstName">Prénom</label>
-          <input name="firstName" id="firstName" autofocus/>
+          <input name="firstName" id="firstName" autofocus />
           <label for="lastName">Nom</label>
           <input name="lastNameName" id="lastName" />
           <label for="mail">Email</label>
@@ -72,18 +72,36 @@
       </form>
     </div>
   </div>
+
+
+
   <div id="lightBox_modal">
     <div id="lightBox" class="lightBox">
+
       <div alt="Previous Image" class="lightBox__left">
         <div id="leftArrow" class="fa-solid fa-angle-left"></div>
       </div>
-      <img alt="photo selectionne" id='lightBox__display' class='lightBox__display' />
+
+
+      <div id='lightBox__slot' class='lightBox__slot'>
+
+      </div>
+
+
+      <!-- <img alt="photo selectionne" id='lightBox__display' class='lightBox__display' /> -->
       <div alt="Next Image" class="lightBox__right">
         <div id="rightArrow" class="fa-solid fa-angle-right"></div>
       </div>
+
       <div alt="Close dialog" id='closeLightBoxBtn' class="fa-solid fa-xmark"></div>
     </div>
   </div>
+
+
+
+
+
+
   <div id="fixedInfo">
   </div>
   <script type="module" src="/scripts/factories/imageModel.js"></script>

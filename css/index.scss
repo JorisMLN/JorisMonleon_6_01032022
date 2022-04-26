@@ -423,8 +423,14 @@ body {
       }
     }
 
-    &__display {
-      height: 900px;
+    &__slot{
+      img{
+        height: 900px;
+      }
+      
+      .hidden{
+        display: none;
+      }
     }
 
     img {
@@ -460,4 +466,8 @@ body {
   bottom: 0;
   right: 10%;
   font-size: 22px;
+}
+
+.hidden{
+  display: none;
 }

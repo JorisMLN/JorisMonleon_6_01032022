@@ -600,8 +600,12 @@ body #photographerSection .article__bot .price {
   margin-right: 13px;
 }
 
-#lightBox_modal .lightBox__display {
+#lightBox_modal .lightBox__slot img {
   height: 900px;
+}
+
+#lightBox_modal .lightBox__slot .hidden {
+  display: none;
 }
 
 #lightBox_modal .lightBox img {
@@ -650,5 +654,9 @@ body #photographerSection .article__bot .price {
   bottom: 0;
   right: 10%;
   font-size: 22px;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=index.css.map */
