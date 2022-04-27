@@ -1,4 +1,4 @@
-const media = [
+const dataMedia = [
   {
     "id": 342550,
     "photographerId": 82,
@@ -535,4 +535,4 @@ const media = [
   }
 ]
 
-export default media;
+export default dataMedia;
