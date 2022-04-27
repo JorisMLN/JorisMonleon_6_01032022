@@ -431,6 +431,21 @@ body {
       .hidden{
         display: none;
       }
+
+      video{
+        width: 700px;
+        height: 500px;
+        border: 1px solid red;
+        // overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        #sourceId{
+          width: 300px;
+        }
+        
+      }
     }
 
     img {

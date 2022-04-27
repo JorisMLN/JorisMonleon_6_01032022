@@ -35,7 +35,7 @@ function main() {
   closeModal();
 
   displayLightBox();
-  closeLightBox();
+  isManagingCloseBtn();
 
   fixedInfoDisplay(media, photographerFiltered);
   toggleHiddenSort();
@@ -269,6 +269,7 @@ function sendForm() {
 
 //####################################################################################################################################
 // Light Box Manager
+
 function displayLightBox() {
   let lightBox = document.getElementById('lightBox_modal');
   let slotToDisplay = document.getElementById('lightBox__slot');
@@ -294,25 +295,26 @@ function displayLightBox() {
     })
 
     // gestion d'open de la modal au clavier
-    document.onkeydown = keyEnterLog;
-    function keyEnterLog(event) {
+    forEnterKey();
+    function forEnterKey() {
+      document.onkeydown = keyEnterLog;
+      function keyEnterLog(event) {
 
-      if (event.code === 'Enter') {
+        if (event.code === 'Enter') {
+          let srcFocus = event.target.firstElementChild.firstElementChild.attributes.src.value;
+          createChildElement(slotToDisplay, srcFocus);
+          lightBox.style.display = "block";
 
-        let srcFocus = event.target.firstElementChild.firstElementChild.attributes.src.value;
-        createChildElement(slotToDisplay, srcFocus);
-        lightBox.style.display = "block";
-
-        arrayRightArrow(arrayOfSources, srcFocus);
-        arrayLeftArrow(arrayOfSources, srcFocus);
-        isManagingKeyboardNav(arrayOfSources, srcFocus);
+          arrayRightArrow(arrayOfSources, srcFocus);
+          arrayLeftArrow(arrayOfSources, srcFocus);
+          isManagingKeyboardNav(arrayOfSources, srcFocus);
+        }
       }
     }
 
     // gestion du click sur une fleche droite
     function arrayRightArrow(arrayOfSources, srcFocus) {
       let rightArrow = document.getElementById('rightArrow');
-      let imgSlot = document.getElementById('imgId');
 
       // Ecoute de click fleche droite
       rightArrow.addEventListener('click', function () {
@@ -322,17 +324,16 @@ function displayLightBox() {
         if (actualIndex > (arrayOfSources.length - 1)) {
           actualIndex = 0;
           srcFocus = arrayOfSources[actualIndex];
-          imgSlot.setAttribute('src', srcFocus);
+          isManagingDomVideoImg(srcFocus)
         } else {
           srcFocus = arrayOfSources[actualIndex];
-          imgSlot.setAttribute('src', srcFocus);
+          isManagingDomVideoImg(srcFocus);
         }
       })
     }
     // gestion du click sur fleche gauche
     function arrayLeftArrow(arrayOfSources, srcFocus) {
       let leftArrow = document.getElementById('leftArrow');
-      let imgSlot = document.getElementById('imgId');
 
       // Ecoute de click fleche gauche
       leftArrow.addEventListener('click', function () {
@@ -342,10 +343,10 @@ function displayLightBox() {
         if (actualIndex < 0) {
           actualIndex = arrayOfSources.length - 1;
           srcFocus = arrayOfSources[actualIndex];
-          imgSlot.setAttribute('src', srcFocus);
+          isManagingDomVideoImg(srcFocus)
         } else {
           srcFocus = arrayOfSources[actualIndex];
-          imgSlot.setAttribute('src', srcFocus);
+          isManagingDomVideoImg(srcFocus)
         }
       })
     }
@@ -355,9 +356,7 @@ function displayLightBox() {
       document.onkeydown = keyDownlog;
 
       function keyDownlog(event) {
-
         let indexOfThisPhoto = arrayOfSources.indexOf(srcFocus);
-        let imgSlot = document.getElementById('imgId');
         let actualIndex;
 
         switch (event.code) {
@@ -369,10 +368,10 @@ function displayLightBox() {
             if (actualIndex > (arrayOfSources.length - 1)) {
               actualIndex = 0;
               srcFocus = arrayOfSources[actualIndex];
-              imgSlot.setAttribute('src', srcFocus);
+              isManagingDomVideoImg(srcFocus)
             } else {
               srcFocus = arrayOfSources[actualIndex];
-              imgSlot.setAttribute('src', srcFocus);
+              isManagingDomVideoImg(srcFocus)
             }
             break;
 
@@ -383,19 +382,16 @@ function displayLightBox() {
             if (actualIndex < 0) {
               actualIndex = arrayOfSources.length - 1;
               srcFocus = arrayOfSources[actualIndex];
-              imgSlot.setAttribute('src', srcFocus);
+              isManagingDomVideoImg(srcFocus)
             } else {
               srcFocus = arrayOfSources[actualIndex];
-              imgSlot.setAttribute('src', srcFocus);
+              isManagingDomVideoImg(srcFocus)
             }
             break;
 
           case 'Backspace':
-            console.log(event.code, 'back');
-            let slotToDisplay = document.getElementById('lightBox__slot');
-            let imgToRemove = document.getElementById('imgId');
-            slotToDisplay.removeChild(imgToRemove);
-            lightBox.style.display = "none";
+            removeAndClose();
+            forEnterKey();
             break;
         }
       }
@@ -408,38 +404,63 @@ function createChildElement(slotToDisplay, srcFocus) {
   console.log(srcFocus);
 
   const video = document.createElement('video');
+  video.setAttribute('id', 'videoId');
+
   const source = document.createElement('source');
+  source.setAttribute('id', 'sourceId');
   source.setAttribute('src', srcFocus);
-  source.setAttribute('id', 'videoId');
+
   video.appendChild(source);
 
   const img = document.createElement('img');
   img.setAttribute('src', srcFocus);
   img.setAttribute('id', 'imgId');
 
-  let mimeType = srcFocus.split('.')[1];
-  console.log(mimeType);
-  if (mimeType === 'jpg') {
-    video.setAttribute('class', 'hidden');
-  } else {
-    img.setAttribute('class', 'hidden');
-  }
 
   slotToDisplay.appendChild(img);
   slotToDisplay.appendChild(video);
+
+  isManagingDomVideoImg(srcFocus);
   return slotToDisplay;
 }
 
-// ferme la modal et supprime l'element (image ou miniature video)
-function closeLightBox() {
-  let lightBox = document.getElementById('lightBox_modal');
+// Gestion du DOM pour les class et les attributes
+function isManagingDomVideoImg(srcFocus) {
+  let img = document.getElementById('imgId');
+  let source = document.getElementById('sourceId');
+  let video = document.getElementById('videoId');
+  let mimeType = srcFocus.split('.')[1];
+  console.log(mimeType);
+
+  img.setAttribute('src', srcFocus);
+  source.setAttribute('src', srcFocus);
+
+  if (mimeType === 'jpg') {
+    video.setAttribute('class', 'hidden');
+    img.removeAttribute('class', 'hidden');
+  } else {
+    img.setAttribute('class', 'hidden');
+    video.removeAttribute('class', 'hidden');
+  }
+}
+
+// gestion du boutton close de la light box
+function isManagingCloseBtn() {
   let closeBtn = document.getElementById('closeLightBoxBtn');
-  let slotToDisplay = document.getElementById('lightBox__slot');
 
   closeBtn.addEventListener('click', function () {
-    let imgToRemove = document.getElementById('imgId');
-    slotToDisplay.removeChild(imgToRemove);
-    lightBox.style.display = "none";
-    displayLightBox();
+    removeAndClose();
   })
+}
+
+// ferme la modal et supprime l'element (image ou miniature video)
+function removeAndClose() {
+  let slotToDisplay = document.getElementById('lightBox__slot');
+  let imgToRemove = document.getElementById('imgId');
+  let videoToRemove = document.getElementById('videoId');
+  let lightBox = document.getElementById('lightBox_modal');
+
+  slotToDisplay.removeChild(imgToRemove);
+  slotToDisplay.removeChild(videoToRemove);
+  lightBox.style.display = "none";
 }

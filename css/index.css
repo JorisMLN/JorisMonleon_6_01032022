@@ -608,6 +608,25 @@ body #photographerSection .article__bot .price {
   display: none;
 }
 
+#lightBox_modal .lightBox__slot video {
+  width: 700px;
+  height: 500px;
+  border: 1px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#lightBox_modal .lightBox__slot video #sourceId {
+  width: 300px;
+}
+
 #lightBox_modal .lightBox img {
   background-color: #312E2E;
   cursor: pointer;
