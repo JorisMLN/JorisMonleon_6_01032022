@@ -286,6 +286,8 @@ function displayLightBox() {
     photo.addEventListener('click', function (event) {
       event.preventDefault();
 
+      console.log(event.target.attributes.src.value);
+
       let srcFocus = event.target.attributes.src.value;
       createChildElement(slotToDisplay, srcFocus);
       lightBox.style.display = "block";
@@ -304,7 +306,7 @@ function displayLightBox() {
           let srcFocus;
           console.log(event.target.firstElementChild.firstElementChild)
           if (event.target.firstElementChild.firstElementChild.tagName === 'VIDEO') {
-            srcFocus = event.target.firstElementChild.firstElementChild.firstElementChild.attributes.src.value;
+            srcFocus = event.target.firstElementChild.firstElementChild.attributes.src.value;
           } else {
             srcFocus = event.target.firstElementChild.firstElementChild.attributes.src.value;
           }
