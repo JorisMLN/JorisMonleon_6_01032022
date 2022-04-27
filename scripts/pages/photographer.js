@@ -301,7 +301,13 @@ function displayLightBox() {
       function keyEnterLog(event) {
 
         if (event.code === 'Enter') {
-          let srcFocus = event.target.firstElementChild.firstElementChild.attributes.src.value;
+          let srcFocus;
+          console.log(event.target.firstElementChild.firstElementChild)
+          if (event.target.firstElementChild.firstElementChild.tagName === 'VIDEO') {
+            srcFocus = event.target.firstElementChild.firstElementChild.firstElementChild.attributes.src.value;
+          } else {
+            srcFocus = event.target.firstElementChild.firstElementChild.attributes.src.value;
+          }
           createChildElement(slotToDisplay, srcFocus);
           lightBox.style.display = "block";
 
@@ -405,17 +411,11 @@ function createChildElement(slotToDisplay, srcFocus) {
 
   const video = document.createElement('video');
   video.setAttribute('id', 'videoId');
-
-  const source = document.createElement('source');
-  source.setAttribute('id', 'sourceId');
-  source.setAttribute('src', srcFocus);
-
-  video.appendChild(source);
+  video.setAttribute('src', srcFocus);
 
   const img = document.createElement('img');
   img.setAttribute('src', srcFocus);
   img.setAttribute('id', 'imgId');
-
 
   slotToDisplay.appendChild(img);
   slotToDisplay.appendChild(video);
@@ -433,7 +433,7 @@ function isManagingDomVideoImg(srcFocus) {
   console.log(mimeType);
 
   img.setAttribute('src', srcFocus);
-  source.setAttribute('src', srcFocus);
+  video.setAttribute('src', srcFocus);
 
   if (mimeType === 'jpg') {
     video.setAttribute('class', 'hidden');
