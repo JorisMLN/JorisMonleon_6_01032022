@@ -609,8 +609,7 @@ body #photographerSection .article__bot .price {
 }
 
 #lightBox_modal .lightBox__slot video {
-  height: 800px;
-  border: 1px solid red;
+  height: 900px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -620,7 +619,6 @@ body #photographerSection .article__bot .price {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 100px;
 }
 
 #lightBox_modal .lightBox img {

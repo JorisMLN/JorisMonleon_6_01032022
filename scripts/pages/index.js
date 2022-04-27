@@ -16,9 +16,6 @@ function displayData(photographers) {
 
   photographers.forEach((photographer) => {
     htmlBloc += photographerFactory(photographer)
-    // const photographerModel = photographerFactory(photographer);
-    // const userCardDOM = photographerModel.getUserCardDOM();
-    // photographersSection.appendChild(userCardDOM);
   });
 
   photographersSection.innerHTML = htmlBloc;

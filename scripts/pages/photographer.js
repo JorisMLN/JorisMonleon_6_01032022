@@ -151,6 +151,7 @@ function displayArt(result) {
   displayMedia.innerHTML = html;
 }
 
+// design patterns factory
 function factory(media) {
   return media.hasOwnProperty('video')
     ?
@@ -191,13 +192,11 @@ function likesManager() {
 
   Array.from(likesBtn).map(btn => {
     btn.addEventListener('click', function () {
-      console.log(btn.dataset.id)
+
       media.forEach((item) => {
         if (item.id === Number(btn.dataset.id)) {
-          item.likes++
-          console.log(item.likes);
-          console.log(item);
 
+          item.likes++
           let likesCount = document.getElementById(`${btn.dataset.id}`);
           likesCount.innerHTML = item.likes;
 
@@ -244,7 +243,6 @@ function closeModal() {
   const modal = document.getElementById('contact_modal');
 
   closeModalBtn.addEventListener('click', () => {
-    console.log('close form')
     modal.style.display = 'none';
   });
 }
@@ -285,8 +283,6 @@ function displayLightBox() {
     // gestion de l'event de click
     photo.addEventListener('click', function (event) {
       event.preventDefault();
-
-      console.log(event.target.attributes.src.value);
 
       let srcFocus = event.target.attributes.src.value;
       createChildElement(slotToDisplay, srcFocus);
@@ -370,7 +366,7 @@ function displayLightBox() {
         switch (event.code) {
 
           case 'ArrowRight':
-            console.log(event.code, 'right');
+            console.log(event.code);
             indexOfThisPhoto = arrayOfSources.indexOf(srcFocus);
             actualIndex = indexOfThisPhoto + 1;
             if (actualIndex > (arrayOfSources.length - 1)) {
@@ -384,7 +380,7 @@ function displayLightBox() {
             break;
 
           case 'ArrowLeft':
-            console.log(event.code, 'left');
+            console.log(event.code);
             indexOfThisPhoto = arrayOfSources.indexOf(srcFocus);
             actualIndex = indexOfThisPhoto - 1;
             if (actualIndex < 0) {
@@ -409,7 +405,6 @@ function displayLightBox() {
 
 // creer l'element a display (image ou miniature video)
 function createChildElement(slotToDisplay, srcFocus) {
-  console.log(srcFocus);
 
   const video = document.createElement('video');
   video.setAttribute('id', 'videoId');
@@ -432,7 +427,6 @@ function isManagingDomVideoImg(srcFocus) {
   let source = document.getElementById('sourceId');
   let video = document.getElementById('videoId');
   let mimeType = srcFocus.split('.')[1];
-  console.log(mimeType);
 
   img.setAttribute('src', srcFocus);
   video.setAttribute('src', srcFocus);
